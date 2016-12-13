@@ -31,42 +31,15 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
-		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
-		}
-		cout<<endl;
+		double v1,v2,v3,a1,a2;
+		cin>>v1>>v2>>v3>>a1>>a2;
+		double t1 = v1/a1;
+		double t2 = v2/a2;
+		double s1 = v1*t1 + (0.5*(-a1)*(t1*t1));
+		double s2 = v2*t2 + (0.5*(-a2)*(t2*t2));
+		double d1 = t1*v3;
+		double d2 = t2*v3;
+		printf("Case %d: %.10lf %.10lf\n",++cs,(s1+s2),max(d1,d2));
 	}
 	return 0;
 }

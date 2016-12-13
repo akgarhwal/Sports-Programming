@@ -29,44 +29,65 @@ typedef vector<long long> vl;
 
 int main(){
 	int tc,cs=0;
-	S(tc);
+	cin>>tc;
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
+		string S,T;
+		cin>>S>>T;
+		int a=0,b=0,c=0,d=0,i=0;
+		while(S[i]!='.'){
+			a=a*10+(int)(S[i]-48);
+			i++;
+		}
+		i++;
+		while(S[i]!='.'){
+			b=b*10+(int)(S[i]-48);
+			i++;
+		}
+		i++;
+		while(S[i]!='.'){
+			c=c*10+(int)(S[i]-48);
+			i++;
+		}
+		i++;
+		while(i<S.size()){
+			d=d*10+(int)(S[i]-48);
+			i++;
+		}
+		int A=0,B=0,C=0,D=0,x=7;
+		i=0;
+		while(x>=0){
+			if(T[i]=='1')
+				A+=pow(2,((int)(T[i]-48))*x);
+			i++;
+			x--;
+		}
+		x=7;i++;
+		while(x>=0){
+			if(T[i]=='1')
+				B+=pow(2,((int)(T[i]-48))*x);
+			i++;
+			x--;
+		}
+		x=7;i++;
+		while(x>=0){
+			if(T[i]=='1')
+				C+=pow(2,((int)(T[i]-48))*x);
+			i++;
+			x--;
+		}
+		x=7;i++;
+		while(x>=0){
+			if(T[i]=='1')
+			D+=pow(2,((int)(T[i]-48))*x);
+			i++;
+			x--;
+		}
+		if(A==a and B==b and C==c and D==d){
+			cout<<"Case "<<++cs<<": "<<"Yes\n";
 		}
 		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
+			cout<<"Case "<<++cs<<": "<<"No\n";
 		}
-		cout<<endl;
 	}
 	return 0;
 }

@@ -31,42 +31,24 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
+		int n,m;
+		S2(n,m);
+		int res;
+		if(m==1 or n==1){
+			res = m*n;
+		}
+		else if(m==2 or n==2){
+			if(n==2){
+				n=m;
+				m=2;
 			}
-			else{
-				cout<<sq<<" "<<1;
-			}
+			res = (n/4)*4;
+			res += (n%4==1)?2:((n%4==0)?0:4);
 		}
 		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
+			res = (n*m +1)/2;
 		}
-		cout<<endl;
+		cout<<"Case "<<++cs<<": "<<res<<endl;
 	}
 	return 0;
 }

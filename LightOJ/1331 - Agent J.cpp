@@ -31,42 +31,26 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
-		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
+		double r1,r2,r3;
+		cin>>r1>>r2>>r3;
+		double a=r1+r2,b=r2+r3,c=r1+r3;
+		//cout<<a<<" "<<b<<" "<<c<<endl;
+		double B = acos((-1)*((c*c)-(a*a)-(b*b))/(2*b*a));
+		//cout<<B<<endl;
+		double C = acos((-1)*((a*a)-(b*b)-(c*c))/(2*b*c));
+		//cout<<C<<endl;
 
-		}
-		cout<<endl;
+		double A = (2*acos(0.0))-B-C;
+		//cout<<A<<endl;
+		double tri_area = (0.5)*a*b*sin(B);
+		//cout<<tri_area<<endl;
+		double area1 = (0.5)*B*r2*r2;
+		double area2 = (0.5)*C*r3*r3;
+		double area3 = (0.5)*A*r1*r1;
+	
+		//cout<<area1<<" "<<area2<<" "<<area3<<endl;
+		double res = (tri_area - area1-area2-area3);
+		printf("Case %d: %.15lf\n",++cs,res);
 	}
 	return 0;
 }

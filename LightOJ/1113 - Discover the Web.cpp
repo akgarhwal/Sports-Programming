@@ -31,42 +31,43 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
+		cout<<"Case "<<++cs<<":\n";
+		stack<string> fw;
+		stack<string> bw;
+		string s,cur="http://www.lightoj.com/";
+		cin>>s;
+		while(s!="QUIT"){
+			if(s=="VISIT"){
+				bw.push(cur);
+				cin>>cur;
+				fw=stack<string>();
+				cout<<cur<<endl;
 			}
-			else{
-				cout<<sq<<" "<<1;
-			}
-		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
+			else if(s=="BACK"){
+				if(bw.size()==0){
+					cout<<"Ignored"<<endl;
 				}
 				else{
-					cout<<(sq+1)<<" "<<d1;
+					fw.push(cur);
+					cur = bw.top();
+					bw.pop();
+					cout<<cur<<endl;
 				}
 			}
 			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
+				if(fw.size()==0){
+					//ignore
+					cout<<"Ignored"<<endl;
 				}
 				else{
-					cout<<(sq+1)<<" "<<d1+1;
+					bw.push(cur);
+					cur = fw.top();
+					fw.pop();
+					cout<<cur<<endl;
 				}
 			}
-
+			cin>>s;
 		}
-		cout<<endl;
 	}
 	return 0;
 }

@@ -31,42 +31,26 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
+		ll w;
+		SL(w);
+		ll n,m;
+		if(w&1){
+			cout<<"Case "<<++cs<<": Impossible\n";
 		}
 		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
+			m =2;
+			n = w/m;
+			if(n&1){
+				cout<<"Case "<<++cs<<": "<<n<<" "<<m<<endl;
 			}
 			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
+				while(n%2==0){
+					m*=2;
+					n = w/(m);
 				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
+				cout<<"Case "<<++cs<<": "<<n<<" "<<m<<endl;
 			}
-
 		}
-		cout<<endl;
 	}
 	return 0;
 }

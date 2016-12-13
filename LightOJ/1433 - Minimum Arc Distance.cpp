@@ -31,42 +31,15 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
-		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
-		}
-		cout<<endl;
+		double ox,oy,ax,ay,bx,by;
+		cin>>ox>>oy>>ax>>ay>>bx>>by;\
+		double r = sqrt((abs(ox-ax)*abs(ox-ax))+(abs(oy-ay)*abs(oy-ay)));
+		double dist = sqrt((abs(ax-bx)*abs(ax-bx))+(abs(ay-by)*abs(ay-by)));
+		double angle = 2.0*asin((dist/2.0)/r);
+		double peri = 2*acos(-1)*r;
+		double d1 = (peri*angle)/(2.0*acos(-1));
+		double d2 = peri-d1;
+		printf("Case %d: %.10lf\n",++cs,min(d1,d2));
 	}
 	return 0;
 }

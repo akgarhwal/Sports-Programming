@@ -31,42 +31,40 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
+		cout<<"Case "<<++cs<<":\n";
+		int n,Q,x;
+		S2(n,Q);
+		deque<int> q;
+		string s;
+		while(Q--){
+			cin>>s;
+			if(q.size()==n and (s=="pushLeft" or s=="pushRight")){
+				cout<<"The queue is full"<<endl;
+				cin>>x;
 			}
-			else{
-				cout<<sq<<" "<<1;
+			else if(q.size()==0 and (s=="popLeft" or s=="popRight")){
+				cout<<"The queue is empty\n";
+			}
+			else if(s=="pushLeft"){
+				cin>>x;
+				q.push_front(x);
+				cout<<"Pushed in left: "<<x<<endl;
+			}
+			else if(s=="pushRight"){
+				cin>>x;
+				q.push_back(x);
+				cout<<"Pushed in right: "<<x<<endl;
+			}
+			else if(s=="popLeft"){
+				cout<<"Popped from left: "<<q.front()<<endl;
+				q.pop_front();
+			}
+			else if(s=="popRight"){
+				cout<<"Popped from right: "<<q.back()<<endl;
+				q.pop_back();
 			}
 		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
-		}
-		cout<<endl;
+		
 	}
 	return 0;
 }

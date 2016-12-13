@@ -31,42 +31,52 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
+		int n,q;
+		S2(n,q);
+		vi a(n,0);
+		rep(i,n){
+			cin>>a[i];
 		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
+		char ch;
+		while(q--){
+			cin>>ch;
+			if(ch=='R'){
+				reverse(ALL(a));
+			}
+			else if(ch=='S'){
+				int x;
+				cin>>x;
+				rep(i,n){
+					a[i]+=x;
 				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
+
+			}
+			else if(ch=='M'){
+				int x;
+				cin>>x;
+				rep(i,n){
+					a[i]*=x;
+				}
+			}
+			else if(ch=='D'){
+				int x;
+				cin>>x;
+				rep(i,n){
+					a[i]/=x;
 				}
 			}
 			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
+				int x,y;
+				cin>>x>>y;
+				swap(a[x],a[y]);
 			}
 
 		}
-		cout<<endl;
+		cout<<"Case "<<++cs<<":\n";
+		rep(i,n-1){
+			cout<<a[i]<<" ";
+		}
+		cout<<a[n-1]<<endl;
 	}
 	return 0;
 }

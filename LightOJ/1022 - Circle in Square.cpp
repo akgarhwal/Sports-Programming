@@ -15,7 +15,7 @@ using namespace std;
 #define S(t) scanf("%d",&t)
 #define S2(x,y) scanf("%d %d",&x,&y)
 #define SL(t) scanf("%lld",&t)
-#define P(t) printf("%d ",t)
+#define P(t) printf("%f ",t)
 #define PL(t) printf("%lld ",t)
 #define NL printf("\n");
 #define ALL(x) x.begin(),x.end()
@@ -31,42 +31,14 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
-		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
-		}
-		cout<<endl;
+		double R;
+		cin>>R;
+		double area_square = (R+R)*(R+R);
+		double area_circle = 2*acos(0.0)*R*R;
+		//P(area_square);P(area_circle);
+		double area = area_square - area_circle;
+		area += 1e-9;
+		printf("Case %d: %.2f\n",++cs,area);
 	}
 	return 0;
 }

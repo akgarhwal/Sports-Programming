@@ -13,7 +13,7 @@ using namespace std;
 
 #define endl "\n"
 #define S(t) scanf("%d",&t)
-#define S2(x,y) scanf("%d %d",&x,&y)
+#define S2(x,y) scanf("%lld %lld",&x,&y)
 #define SL(t) scanf("%lld",&t)
 #define P(t) printf("%d ",t)
 #define PL(t) printf("%lld ",t)
@@ -31,42 +31,36 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
+		ll a,b,c,d,e,f,n,R=0;
+		S2(a,b);S2(c,d);S2(e,f);S(n);
+		for(int i=6;i<=n;i++){
+			R = (a+b+c+d+e+f)%10000007;
+			a=b;b=c;c=d;d=e;e=f;f=R;
+		}
+		if(n<=5){
+			switch(n){
+				case 0:
+				cout<<"Case "<<++cs<<": "<<a%10000007<<endl;
+				break;
+				case 1:
+				cout<<"Case "<<++cs<<": "<<b%10000007<<endl;
+				break;
+				case 2:
+				cout<<"Case "<<++cs<<": "<<c%10000007<<endl;
+				break;
+				case 3:
+				cout<<"Case "<<++cs<<": "<<d%10000007<<endl;
+				break;
+				case 4:
+				cout<<"Case "<<++cs<<": "<<e%10000007<<endl;
+				break;
+				case 5:
+				cout<<"Case "<<++cs<<": "<<f%10000007<<endl;
+				break;
 			}
 		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
-		}
-		cout<<endl;
+		else
+			cout<<"Case "<<++cs<<": "<<R%10000007<<endl;
 	}
 	return 0;
 }

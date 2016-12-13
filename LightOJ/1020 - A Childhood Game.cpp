@@ -32,41 +32,25 @@ int main(){
 	S(tc);
 	while(tc--){
 		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
+		int n;
+		string s;
+		cin>>n>>s;
+		if(s=="Alice"){
+			if(n%3==1){
+				cout<<"Bob\n";
 			}
 			else{
-				cout<<sq<<" "<<1;
+				cout<<"Alice\n";
 			}
 		}
 		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
+			if(n%3==0){
+				cout<<"Alice\n";
 			}
 			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
+				cout<<"Bob\n";
 			}
-
 		}
-		cout<<endl;
 	}
 	return 0;
 }

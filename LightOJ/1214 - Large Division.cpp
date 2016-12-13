@@ -12,7 +12,7 @@ Now, God only knows												*/
 using namespace std;
 
 #define endl "\n"
-#define S(t) scanf("%d",&t)
+#define S(t) scanf("%d\n",&t)
 #define S2(x,y) scanf("%d %d",&x,&y)
 #define SL(t) scanf("%lld",&t)
 #define P(t) printf("%d ",t)
@@ -31,42 +31,29 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
+		string s;
+		int b;
+		cin>>s>>b;
+		int n = s.size();
+		ll a=0,i=0;
+		if(s[i]=='-'){
+			i++;
+		}
+		if(b<0){
+			b = -b;
+		}
+		while(i<n){
+			a =a*10 + int(s[i++]-48);
+			a = a % b;
+		}
+		if(a==0){
+			printf("Case %d: divisible\n",++cs);
 		}
 		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
+			printf("Case %d: not divisible\n",++cs);
 		}
-		cout<<endl;
+
+
 	}
 	return 0;
 }

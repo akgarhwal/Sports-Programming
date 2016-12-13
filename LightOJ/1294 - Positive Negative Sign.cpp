@@ -13,7 +13,7 @@ using namespace std;
 
 #define endl "\n"
 #define S(t) scanf("%d",&t)
-#define S2(x,y) scanf("%d %d",&x,&y)
+#define S2(x,y) scanf("%lld %lld",&x,&y)
 #define SL(t) scanf("%lld",&t)
 #define P(t) printf("%d ",t)
 #define PL(t) printf("%lld ",t)
@@ -31,42 +31,20 @@ int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
+		ll n,m;
+		S2(n,m);
+		ll N1 = n/(2*m);
+		ll N2 = n/(2*m);
+		if(n%(2*m)!=0){
+			N2 = n/(2*m) +1;
 		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
+		ll sum=0;
+		ll msum = (m*(m+1))/2;
+		m =m*m;
+		ll sumn = (N2*((msum*2)+(N2-1)*(2*m)))/2;
 
-		}
-		cout<<endl;
+		ll sump = (N1*(((msum+m)*2)+(N1-1)*(2*m)))/2;
+		cout<<"Case "<<++cs<<": "<<sump-sumn<<endl;
 	}
 	return 0;
-}
+}	

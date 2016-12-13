@@ -27,46 +27,50 @@ typedef pair<int,int> ii;
 typedef vector<int> vi;
 typedef vector<long long> vl;
 
+bool myfun(ii a,ii b){
+	if(a.first < b.first){
+		return true;
+	}
+	else if(a.first == b.first){
+		if(a.second > b.second){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	return false;
+}
+
+int numberOfDivisor(int n){   
+	int b=n;
+    int res=1;
+    for(int k=2;k*k<=n;k++){
+        int p=0;
+        while(n%k==0){
+            p++;
+            n/=k;
+        }
+        res *= (p+1);
+    }
+    if(n>1)
+        res *= (2);
+    return res;
+}
 int main(){
+	vector<ii> seq;
+	rer(i,1,1000){
+		int nod = numberOfDivisor(i);
+		//cout<<i<<" "<<nod<<endl;
+		seq.push_back({nod,i});
+	}
+	sort(ALL(seq),myfun);
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
-		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
-		}
-		cout<<endl;
+		int n;
+		S(n);
+		cout<<"Case "<<++cs<<": "<<seq[n-1].second<<endl;
 	}
 	return 0;
 }

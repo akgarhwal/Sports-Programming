@@ -26,47 +26,37 @@ typedef long long ll;
 typedef pair<int,int> ii;
 typedef vector<int> vi;
 typedef vector<long long> vl;
-
 int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
+		int n;
+		S(n);
+		bitset<40> a(n);
+		int x=0;
+		for(int i=0;i<39;i++){
+			if(a[i]==1 and a[i+1]==0){
+				int t = a[i];
+				a[i] = a[i+1];
+				a[i+1]=t;
+				x=i;
+				break;
 			}
 		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
+		int c1=0;
+		for(int i=0;i<x;i++){
+			if(a[i]==1){
+				c1++;
+				a[i]=0;
 			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
 		}
-		cout<<endl;
+		int i=0;
+		while(c1--){
+			a[i++]=1;
+		}
+		//cout<<a<<endl;
+		long long temp1 =(long long)(a.to_ulong());
+		cout<<"Case "<<++cs<<": "<<temp1<<endl;
 	}
 	return 0;
 }

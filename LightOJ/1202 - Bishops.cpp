@@ -27,46 +27,31 @@ typedef pair<int,int> ii;
 typedef vector<int> vi;
 typedef vector<long long> vl;
 
+bool check(int x,int y){
+	if(int(x&1) == int(y&1)){
+		return true;
+	}
+	return false;
+}
+
 int main(){
 	int tc,cs=0;
 	S(tc);
 	while(tc--){
-		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
+		string moveC = "impossible";
+		int x1,y1,x2,y2;
+		cin>>x1>>y1>>x2>>y2;
+		bool f1 = check(x1,y1);
+		bool f2 = check(x2,y2);
+		if((f1==true and f2==true) or (f1==false and f2 ==false)){
+			if(abs(x1-x2) == abs(y1-y2)){
+				moveC="1";
 			}
-			else{
-				cout<<sq<<" "<<1;
+			else {
+				moveC ="2";
 			}
 		}
-		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
-			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
-		}
-		cout<<endl;
+		cout<<"Case "<<++cs<<": "<<moveC<<endl;
 	}
 	return 0;
 }

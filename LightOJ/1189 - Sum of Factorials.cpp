@@ -28,45 +28,39 @@ typedef vector<int> vi;
 typedef vector<long long> vl;
 
 int main(){
+	vl F;
+	ll fact=1;
+	F.push_back(1);
+	rer(i,1,20){
+		fact*=i;
+		F.push_back(fact);
+	}
+
 	int tc,cs=0;
 	S(tc);
+
 	while(tc--){
+		ll N;
+		SL(N);	
+		set<int> st;
+		for(int i=20;i>=0;i--){
+			if(F[i]<=N){
+				st.insert(i);
+				N = N-F[i];
+			}
+		}
 		cout<<"Case "<<++cs<<": ";
-		ll n;
-		cin>>n;
-		ll sq = sqrt(n)+1e-7;
-		//cout<<sq<<endl;
-		if(sq*sq == n){
-			if(sq%2==1){
-				cout<<1<<" "<<sq;
-			}
-			else{
-				cout<<sq<<" "<<1;
-			}
+		if(N!=0){
+			cout<<"impossible\n";
 		}
 		else{
-			ll dif = (sq+1)*(sq+1) - (sq*sq);
-			ll d1 = n-(sq*sq);
-			if(d1<=(dif/2)){
-				if(sq%2==1){
-					cout<<d1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1;
-				}
+			set<int>::iterator it=st.begin();
+			cout<<*it++;
+			while(it!=st.end()){
+				cout<<"!+"<<*it++;
 			}
-			else{
-				d1 = ((sq+1)*(sq+1))-n;
-				if(sq%2==0){
-					cout<<d1+1<<" "<<(sq+1);
-				}
-				else{
-					cout<<(sq+1)<<" "<<d1+1;
-				}
-			}
-
+			cout<<"!\n";
 		}
-		cout<<endl;
 	}
 	return 0;
 }
