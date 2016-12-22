@@ -1,0 +1,33 @@
+/*
+	Author      : akgarhwal
+	Date        : 22-12-2016 15:04:23
+	Description : Fedor and New Game
+*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+	int n,m,k;
+	cin>>n>>m>>k;
+	int a[m];
+	for(int i=0; i< m; i++){
+		cin>>a[i];
+	}
+	int fador=0,fador_fr=0;
+	cin>>fador;
+
+	for(int i=0; i< m; i++){
+		int X = (a[i]^fador);
+		int count=0;
+		while(X){
+			count++;
+			X=(X&(X-1));
+		}
+		if(count<=k){
+			fador_fr++;
+		}
+	}
+	cout<<fador_fr<<endl;
+	return 0;
+}
