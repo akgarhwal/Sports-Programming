@@ -1,0 +1,7 @@
+<--------------------------------------------->
+Problem Link : http://codeforces.com/problemset/problem/451/B
+
+Aim : Try to understand tester solution
+
+<--------------------------------------------->
+<--------------------------------------------->

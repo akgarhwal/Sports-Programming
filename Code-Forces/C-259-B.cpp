@@ -1,0 +1,64 @@
+/*
+	Author      : akgarhwal
+	Date        : 04-01-2017 15:26:38
+	Description : Little Ponyand Sort by Shift
+*/		
+
+#include <iostream>
+using namespace std;
+
+int main(){
+	
+	int n;
+	cin>>n;
+	int a[n];
+	int si=-1;
+	for(int i=0; i< n; i++){
+		cin>>a[i];
+	}
+	for(int i=1; i< n; i++){
+		if(a[i]<a[i-1] and si!=-1){
+			si=-2;
+			break;
+		}
+		if(a[i]<a[i-1]){
+			si=i;
+		}
+		
+	}
+	if(si==-1){
+		cout<<0<<endl;
+	}
+	if(si==-2){
+		cout<<-1<<endl;
+	}
+	else if(si!=-1){
+		int x=si;
+		bool isOK=true;
+		while(x<n){
+			int y=(x+1)%n;
+			if(a[x]>a[y]){
+				isOK=false;
+				break;
+			}
+			x++;
+		}
+		x=0;
+		while(x<si-1){
+			if(a[x]>a[x+1]){
+				isOK=false;
+				break;
+			}
+			x++;
+		}
+
+		if(!(isOK)){
+			cout<<-1<<endl;
+		}
+		else{
+			cout<<(n-si)<<endl;
+		}
+	}
+
+	return 0;
+}
