@@ -1,0 +1,54 @@
+/*
+	Author      : akgarhwal
+	Date        : 08-01-2017 01:31:35
+	Description : The Child and Set
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int lowbit(int n){
+	int k =0;
+	while((n&1)!=1){
+		k++;
+		n=n>>1;
+	}
+	return k;
+}
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+	vector<pair<int,int> > v;
+	int s[100001]={0};
+	for(int i=1; i<=100000 ; i++){
+		
+		v.push_back(make_pair(int(pow(2,lowbit(i))),i));
+		s[i] = s[i-1] + v[i-1].first;
+		//cout<<v[i-1].first<<" ";
+	}
+	sort(v.begin(),v.end());
+	int sum,lim;
+	cin>>sum>>lim;
+	if(s[lim] < sum){
+		cout<<-1;
+	}
+	else{
+		vector<int> t;
+		for(int i=100000; i>=1 ; i--){
+			if(v[i-1].first <= sum and v[i-1].second <= lim){
+				t.push_back(v[i-1].second);
+				sum -= v[i-1].first;
+			}
+			if(sum==0){
+				break;
+			}
+		}
+		cout<<t.size()<<endl;
+		for(int i=0; i< t.size(); i++){
+			cout<<t[i]<<" ";
+		}
+	}
+
+	return 0;
+}

@@ -2,6 +2,45 @@
 Problem Link : http://codeforces.com/problemset/problem/451/B
 
 Aim : Try to understand tester solution
+<--------------------------------------------->
 
 <--------------------------------------------->
+Problem Link : http://codeforces.com/problemset/problem/486/B
+
+Aim :Try to Solve it as fast as you can
 <--------------------------------------------->
+
+<--------------------------------------------->
+Problem Link : http://codeforces.com/contest/387/problem/B
+
+Aim : Slove it with O(n+m)
+<--------------------------------------------->
+
+<--------------------------------------------->
+Problem Link : http://codeforces.com/problemset/problem/330/B
+
+Aim : Solve it
+
+<--------------------------------------------->
+
+<--------------------------------------------->
+Problem Link : http://codeforces.com/problemset/problem/289/B
+
+Aim : Solve it.
+<--------------------------------------------->
+
+<--------------------------------------------->
+Problem Link : http://codeforces.com/problemset/problem/233/B
+Aim : Solve it
+<--------------------------------------------->
+
+<--------------------------------------------->
+Problem Link : http://codeforces.com/problemset/problem/219/B
+Aim : 
+
+
+http://codeforces.com/problemset/problem/205/B
+
+
+http://codeforces.com/problemset/problem/96/B
+

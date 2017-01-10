@@ -1,0 +1,32 @@
+/*
+	Author      : akgarhwal
+	Date        : 04-01-2017 20:19:41
+	Description : Little Elephent
+*/
+
+#include <iostream>
+using namespace std;
+
+int main(){
+	int ms[3][3];
+	
+	for(int i=0; i< 3; i++){
+		for(int j=0; j< 3; j++){
+			cin>>ms[i][j];
+		}
+	}
+	int r1,r2,r3;
+	r1 = ms[0][1] + ms[0][2];
+	r2 = ms[1][0] + ms[1][2];
+	r3 = ms[2][0] + ms[2][1];
+	ms[2][2]=(r1+r2-r3)/2;
+	ms[1][1]=r1-ms[2][2];
+	ms[0][0]=r3-ms[1][1];
+	for(int i=0; i< 3; i++){
+		for(int j=0; j< 3; j++){
+			cout<<ms[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	return 0;
+}

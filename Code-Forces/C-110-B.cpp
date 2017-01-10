@@ -1,0 +1,34 @@
+/*
+	Author      : akgarhwal
+	Date        : 05-01-2017 16:19:43
+	Description : Trace
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define PI 3.1415926536
+
+int main(){
+	 int n;
+	 cin>>n;
+	 int a[n];
+	 for(int i=0; i< n; i++){
+	 	cin>>a[i];
+	 }
+	 
+	 sort(a,a+n);
+	 double area=0.0;
+	 if(n%2==1)
+	 	area = (PI*double((a[0])*(a[0])));
+	 for(int i=1; i< n; i++){
+	 	if(i%2 != n%2){
+	 		double out = ((PI*double((a[i-1])*(a[i-1]))));
+	 		double in = ((PI*double((a[i])*(a[i]))));
+	 		area += (in-out);
+	 	}
+	 	//cout<<area<<endl;
+	 }
+	 printf("%.9f\n",area);
+	return 0;
+}

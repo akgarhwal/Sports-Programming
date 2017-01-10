@@ -1,0 +1,60 @@
+/*
+	Author      : akgarhwal
+	Date        : 10-01-2017 13:08:28
+	Description : Well known Number
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int lastk(vector<int> &fk,int k){
+	int sz = fk.size();
+	int sum =0;
+	if(sz>k){
+		for(int i=0;i<k;i++){
+			sum += (fk[sz-i-1]);
+		}
+	}
+	else{
+		for(int i=0; i< sz; i++){
+			sum+=(fk[i]);
+		}
+	}
+	return sum;
+}
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int s,k;
+	cin>>s>>k;
+	vector<int> fk;
+	fk.push_back(1);
+	int sum=1,i=k+1;
+	for(; sum<=s; i++){
+		//cout<<"RET = "<<k<<"  "<<lastk(fk,k)<<endl;
+		fk.push_back(lastk(fk,k));
+		sum += fk[i-k];
+	//	cout<<sum<<" ";
+	}
+	
+	vector<int> v;
+	//cout<<"Now\n";
+	for(int i=fk.size()-1; i>=0 and s>0; i--){
+		if(fk[i]<=s){
+			v.push_back(fk[i]);
+			s=s-fk[i];
+		}
+	}
+	if(v.size()<2){
+		cout<<2<<"\n"<<v[0]<<" 0";
+	}
+	else{
+		cout<<v.size()<<endl;
+	for(int i=0; i< v.size(); i++){
+		cout<<v[i]<<" ";
+	}
+}
+	return 0;
+}

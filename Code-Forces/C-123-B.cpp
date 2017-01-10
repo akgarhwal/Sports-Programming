@@ -1,0 +1,33 @@
+/*
+	Author      : akgarhwal
+	Date        : 09-01-2017 11:12:17
+	Description : After Training
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int n,m;
+	cin>>n>>m;
+	vector<int> v;
+	int mid = (m+1)/2;
+	v.push_back(mid);
+	int add=0;
+	if((m&1)==0){
+		v.push_back(mid+1);
+		add=1;
+	}
+	for(int i=1; i< mid; i++){
+		v.push_back(mid-i);
+		v.push_back(mid+i+add);
+	}
+	
+	for(int i=0; i< n; i++){
+		cout<<v[i%m]<<endl;
+	}
+	return 0;
+}
