@@ -1,0 +1,61 @@
+/*
+	Author      : akgarhwal
+	Date        : 14-01-2017 13:16:58
+	Description : Hard Work
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+string parse(string s){
+	string t="";
+	for(int i=0; i< s.size(); i++){
+		if(!(s[i]==';' or s[i]=='_' or s[i]=='-')){
+			t += (s[i]);
+		}
+	}
+	return t;
+}
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	string a,b,c;
+	cin>>a>>b>>c;
+	int n;
+	cin>>n;
+	a = parse(a);
+	b = parse(b);
+	c = parse(c);
+	transform(a.begin(), a.end(), a.begin(), ::tolower);
+	//cout<<a<<endl;
+	transform(b.begin(), b.end(), b.begin(), ::tolower);
+	//cout<<b<<endl;
+	transform(c.begin(), c.end(), c.begin(), ::tolower);
+	//cout<<c<<endl;
+	string u =a+b+c,v=a+c+b,w=b+a+c,x=b+c+a,y=c+a+b,z=c+b+a;
+	int lenA = a.size(),lenB = b.size(),lenC = c.size();
+	while(n--){
+		string s;
+		cin>>s;
+		s=parse(s);
+		transform(s.begin(), s.end(), s.begin(), ::tolower);
+		
+		if(s.size()!=(lenA+lenB+lenC)){
+			cout<<"WA\n";
+		}
+		else{
+			if(s==u or s==v or s==w or s==x or s==y or s==z){
+				cout<<"ACC\n";
+			}
+			else{
+				cout<<"WA\n";
+			}
+		}
+
+	}
+	return 0;
+}
