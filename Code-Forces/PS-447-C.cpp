@@ -1,0 +1,84 @@
+/*
+	Author      : akgarhwal
+	Date        : 21-02-2017 15:49:04
+	Description : 
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef vector<int> vi; 
+typedef pair<int,int> ii; 
+#define sz(a) int((a).size()) 
+#define pb push_back 
+#define all(c) (c).begin(),(c).end() 
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++) 
+#define present(c,x) ((c).find(x) != (c).end()) 
+#define cpresent(c,x) (find(all(c),x) != (c).end()) 
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int n;
+	cin>>n;
+	if(n<=2){ cout<<n<<endl; return 0;}
+	
+	int a[n],dpf[100001]={0},dpb[100001] = {0};
+	cin>>a[0];
+	dpf[0]=1;
+	int ans=0;
+	for(int i=1; i< n; i++){
+		cin>>a[i];
+		if(a[i]>a[i-1]){
+			dpf[i] = dpf[i-1]+1;
+			ans = max(ans,dpf[i]);
+		}
+		else{
+			dpf[i]=1;
+		}
+	}
+
+	// for(int i=0; i< n; i++){
+	// 	cout<<dpf[i]<<" ";
+	// }
+	// cout<<endl;
+
+
+
+
+	dpb[n-1]=1;
+	for(int i=n-2; i>=0 ; i--){
+		if(a[i]<a[i+1]){
+			dpb[i] = dpb[i+1]+1;
+			ans = max(ans,dpb[i]);
+		}
+		else{
+			dpb[i]=1;
+		}
+	}
+	// for(int i=0; i< n; i++){
+	// 	cout<<dpb[i]<<" ";
+	// }
+	// cout<<endl;
+	int co = ans+1;
+
+	for(int i=0; i< n; i++){
+		if(i==0){
+			ans= max(ans,(dpb[i+1] + 1));
+		}
+		else if(i==n-1){
+			ans= max(ans,(dpf[i-1] + 1));
+		}
+		else if(a[i-1]+1 < a[i+1]){
+			ans = max(ans, (dpf[i-1] + dpb[i+1] +1) );
+		}
+		else{
+			ans = max(ans, max(dpf[i-1] +1, dpb[i+1] +1) );
+		}
+	}
+	cout<<ans<<endl;
+
+	return 0;
+}

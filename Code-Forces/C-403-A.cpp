@@ -1,0 +1,41 @@
+/*
+	Author      : akgarhwal
+	Date        : 05-03-2017 18:34:53
+	Description : 
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long 			ll;
+typedef vector<int> 		vi; 
+typedef pair<int,int> 		ii; 
+#define sz(a) 				int((a).size()) 
+#define pb 					push_back 
+#define all(c) 				(c).begin(),(c).end() 
+#define tr(c,i) 			for(auto i = (c).begin(); i != (c).end(); i++) 
+#define present(c,x) 		((c).find(x) != (c).end()) 
+#define cpresent(c,x) 		(find(all(c),x) != (c).end())  
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int n;
+	cin>>n;
+	vi v(2*n,0);
+	vi has(n+1,0);
+	int ans=0,as=0;
+	for(int i=0; i< 2*n; i++){
+		cin>>v[i];
+		if(has[v[i]]==1){
+			has[v[i]]=0;
+			ans--;
+		}
+		else{has[v[i]]=1;
+			ans++;}
+		as = max(as,ans);
+	}
+	cout<<as<<endl;
+	return 0;
+}
