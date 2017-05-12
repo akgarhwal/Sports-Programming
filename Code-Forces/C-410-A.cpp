@@ -1,0 +1,43 @@
+/*
+	Author      : akgarhwal
+	Date        : 25-04-2017 14:25:23
+	Description : 
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long 			ll;
+typedef vector<int> 		vi; 
+typedef pair<int,int> 		ii; 
+#define sz(a) 				int((a).size()) 
+#define pb 					push_back 
+#define all(c) 				(c).begin(),(c).end() 
+#define tr(c,i) 			for(auto i = (c).begin(); i != (c).end(); i++) 
+#define present(c,x) 		((c).find(x) != (c).end()) 
+#define cpresent(c,x) 		(find(all(c),x) != (c).end())  
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	string s;
+	cin>>s;
+	int e=0,j = sz(s)-1;
+	for(int i=0; i< sz(s)/2; i++,j--){
+		if(s[i] != s[j]){
+			e++;
+		}
+	}
+	if(e ==1  and sz(s)%2==0){
+		cout<<"YES";
+	}
+	else if(sz(s)%2==1 and e<=1){
+		cout<<"YES";
+	}
+	else{
+		cout<<"NO";
+	}
+
+	return 0;
+}
