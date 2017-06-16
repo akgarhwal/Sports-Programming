@@ -1,7 +1,7 @@
 /*
 	Author      : akgarhwal
 	Date        : 17-04-2017 07:39:47
-	Description : 
+	Description : Brute Force....try again
 */
 
 #include <bits/stdc++.h>

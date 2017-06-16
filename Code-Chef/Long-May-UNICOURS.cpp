@@ -25,7 +25,7 @@ int main(){
 	cin>>tc;
 	while(tc--){
 		int n;
-		int ans=0;
+		int ans=1e8;
 		cin>>n;
 		for(int i=0; i< n; i++){
 			int x;

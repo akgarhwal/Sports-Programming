@@ -1,7 +1,7 @@
 /*
 	Author      : akgarhwal
 	Date        : 15-04-2017 21:13:33
-	Description : Euler path 
+	Description : Pendinng not solved yet
 */
 
 #include <bits/stdc++.h>

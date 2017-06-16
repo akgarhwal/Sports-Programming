@@ -1,59 +1,34 @@
+/*
+    Author      : akgarhwal
+    Date        : 23-05-2017 21:02:18
+    Description : Language Used -> C++14
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
+typedef long long    ll;
+typedef vector<int>    vi;
+typedef pair<int,int>    pi;
+#define F        first
+#define S        second
+#define PB        push_back
+#define MP        make_pair
+#define sz(a)        int((a).size())
+#define all(c)        (c).begin(),(c).end()
+#define REP(i,a,b)    for(int i = a; i < b; i++)
+#define tr(c,i)        for(auto i = (c).begin(); i != (c).end(); i++)
+#define present(c,x)    ((c).find(x) != (c).end())
+#define cpresent(c,x)    (find(all(c),x) != (c).end())
+#define MOD        1000000007     /* 10^9+7*/
 
-struct Node{
-    int key;
-    int left;
-    int right;
-    Node(){
-        key = 0;
-        left = -1;
-        right = -1;
-    }
-};
 
-vector<Node> adj(100001);
 
-bool isBST(int root,long mi,long mx){
-
-    if(root == -1){
-        return true;
-    }
-
-    if(!(mi < adj[root].key and adj[root].key < mx)){
-        return false;
-    }
-    if(adj[root].left == -1 and adj[root].right == -1 ){
-        return true;
-    }
-
-    return isBST(adj[root].left,mi,adj[root].key) && isBST(adj[root].right,adj[root].key,mx);
-
-}
 
 int main(){
     //freopen("input.txt", "r", stdin);
     //freopen("output.txt", "w", stdout);
 
-    int n;
-    cin>>n;
-   
-    for(int i=0; i< n; i++){
-        int k,l,r;
-        cin>>k>>l>>r;
-        adj[i].key = k;
-        adj[i].left = l;
-        adj[i].right = r;       
-    }
-    //cout<<adj[5].key<<" "<<adj[5].left<<" "<<adj[5].right<<endl;
-
-    if(isBST(0,INT_MIN-5ll,INT_MAX+5ll)){
-        cout<<"CORRECT";
-    }
-    else{
-        cout<<"INCORRECT";
-    }
-
+    
     return 0;
 }
