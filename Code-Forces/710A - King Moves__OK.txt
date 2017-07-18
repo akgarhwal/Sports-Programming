@@ -1,0 +1,47 @@
+/* http://codeforces.com/problemset/problem/710/A */
+/* akgarhwal */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+#include<bits/stdc++.h>
+using namespace std;
+//input
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<string> vs;
+typedef pair<int,int> pii;
+typedef vector<pii> vpii;
+typedef set<int> si;
+typedef set<string> ss;
+typedef map<int,int> mii;
+typedef map<string,int> msi;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define mod 1000000007
+
+//main
+int main(){
+    char r,c;
+    cin>>c>>r;
+    if((r=='1' or r=='8') and (c=='a' or c=='h')){
+        cout<<3<<endl;
+    }
+    else if((r=='1')or r=='8' ){
+        cout<<5<<endl;
+    }
+    else if(c=='a' or c=='h')
+    {
+        cout<<5<<endl;
+    }
+    else{
+        cout<<8<<endl;
+    }
+    return 0;
+}

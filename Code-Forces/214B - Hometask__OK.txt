@@ -1,0 +1,120 @@
+/* http://codeforces.com/problemset/problem/214/B */
+/*
+	Author      : akgarhwal
+	dte        : 10-01-2017 11:35:37
+	Description : Largest Number
+*/
+
+#include <iostream>
+using namespace std;
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int n,x,rem=0;
+	cin>>n;
+	int d[10]={0};
+	
+	for(int i=0; i< n; i++){
+		cin>>x;
+		d[x]++;
+		rem = (rem+x)%3;
+	}
+//	cout<<rem<<endl;
+	if(d[0]==0){
+		cout<<-1<<endl;
+		return 0;
+	}
+	else{
+		if(rem==1){
+			if(d[1]>0){
+				d[1]--;
+			}
+			else if(d[4]>0){
+				d[4]--;
+			}
+			else if(d[7]>0){
+				d[7]--;
+			}
+			else if(d[2]>1){
+				d[2]--;
+				d[2]--;
+			}
+			else if(d[5]>1){
+				d[5]--;
+				d[5]--;
+			}
+			else if(d[8]>1){
+				d[8]--;
+				d[8]--;
+			}
+			else if(d[2]>0 and d[5]>0){
+				d[2]--;
+				d[5]--;
+			}
+			else if(d[2]>0 and d[8]>0){
+				d[2]--;
+				d[8]--;
+			}
+			else if(d[5]>0 and d[8]>0){
+				d[8]--;
+				d[5]--;
+			}
+
+
+		}
+		else if(rem==2){
+			if(d[2]>0){
+				d[2]--;
+			}
+			else if(d[5]>0){
+				d[5]--;
+			}
+			else if(d[8]>0){
+				d[8]--;
+			}
+			else if(d[1]>1){
+				d[1]-=2;
+			}
+			else if(d[4]>1){
+				d[4]-=2;
+			}
+			else if(d[7]>1){
+				d[7]-=2;
+			}
+			else if(d[1]>0 and d[4]>0){
+				d[1]--;
+				d[4]--;
+			}
+			else if(d[1]>0 and d[7]>0){
+				d[1]--;
+				d[7]--;
+			}
+			else if(d[4]>0 and d[7]>0){
+				d[4]--;
+				d[7]--;
+			}
+		}
+
+	}
+	bool pr =false;
+	for(int i=9; i>=1 ; i--){
+		int z = d[i];
+		while(z--){
+			cout<<i;
+			pr=true;
+		}
+	}
+	if(pr==false){
+		cout<<0;
+	}
+	else{
+		int z =d[0];
+		while(z--){
+			cout<<0;
+		}
+	}
+
+	return 0;
+}

@@ -1,0 +1,53 @@
+/* http://codeforces.com/problemset/problem/707/A */
+/* akgarhwal */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+#include<bits/stdc++.h>
+using namespace std;
+//input
+#define si(t) scanf("%d",&t)
+
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<string> vs;
+typedef pair<int,int> pii;
+typedef vector<pii> vpii;
+typedef set<int> si;
+typedef set<string> ss;
+typedef map<int,int> mii;
+typedef map<string,int> msi;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define mod 1000000007
+
+//main
+int main(){
+    int r,c;
+    si(r);
+    si(c);
+    int f=0;
+    int n=r*c;
+    char ch;
+    while(n--){
+        cin>>ch;
+        if(ch!='W' and ch!='B' and ch!='G' and f==0){
+            f=1;
+        }
+
+    }
+    if(f==1){
+        cout<<"#Color";
+    }
+    else{
+        cout<<"#Black&White";
+    }
+    return 0;
+}

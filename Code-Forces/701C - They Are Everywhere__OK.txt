@@ -1,0 +1,63 @@
+/* http://codeforces.com/problemset/problem/701/C */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+/* akgarhwal */
+#include<bits/stdc++.h>
+using namespace std;
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef pair<int,int> ii;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+
+//main
+int main(){
+    int n;
+    cin>>n;
+    string A;
+    cin>>A;
+    bool a[26]={0};
+        bool aa[26]={0};
+        int dp=0;
+        for(int i=0;i<A.size();i++){
+            if(isupper(A[i])){
+                if(aa[A[i]-65]==0){
+                    aa[A[i]-65]=1;
+                    dp++;
+                }
+            }
+            else{
+                if(a[A[i]-97]==0){
+                    a[A[i]-97]=1;
+                    dp++;
+                }
+            }
+        }
+        int K = dp;
+    int l = 0, r = 0, ans = 100001;
+map <char , int >  cnt;
+ set<char> s;
+while ( l < n ) {
+    while ( r < n && s.size() < K ) {
+       s.insert(A[r]);
+       cnt[A[r]]++;
+       r++;
+    }
+    if (s.size() >=K) {
+        ans = min(ans, r-l);
+    }
+    if ( cnt[A[l]] == 1 ) s.erase(A[l]);
+    cnt[A[l]]--;
+    l++;
+}
+
+cout << ans << endl;
+    return 0;
+}

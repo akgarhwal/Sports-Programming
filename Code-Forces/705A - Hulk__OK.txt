@@ -1,0 +1,49 @@
+/* http://codeforces.com/problemset/problem/705/A */
+/* akgarhwal */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+#include<bits/stdc++.h>
+using namespace std;
+//input
+#define si(t) scanf("%d",&t)
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<string> vs;
+typedef pair<int,int> pii;
+typedef vector<pii> vpii;
+typedef set<int> si;
+typedef set<string> ss;
+typedef map<int,int> mii;
+typedef map<string,int> msi;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define mod 1000000007
+
+//main
+int main(){
+    int tc;
+    si(tc);
+    string s = "I hate ",s1 ="I love ";
+    string s2="I hate it",s3="I love it",ans="";
+    ans += s;
+    while(tc--){
+        if(tc>0)
+            ans+= "that " + s1;
+        else
+            break;
+        tc--;
+        if(tc>0)
+            ans += "that " + s;
+
+    }
+    cout<<ans<<"it";
+    return 0;
+}

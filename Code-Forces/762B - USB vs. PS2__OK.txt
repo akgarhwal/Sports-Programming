@@ -1,0 +1,86 @@
+/* http://codeforces.com/problemset/problem/762/B */
+/*
+	Author      : akgarhwal
+	Date        : 25-01-2017 20:56:25
+	Description : 
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef vector<int> vi; 
+typedef pair<int,int> ii; 
+#define sz(a) int((a).size()) 
+#define pb push_back 
+#define all(c) (c).begin(),(c).end() 
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++) 
+#define present(c,x) ((c).find(x) != (c).end()) 
+#define cpresent(c,x) (find(all(c),x) != (c).end()) 
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int U,P,B;
+	cin>>U>>P>>B;
+	int m;
+	cin>>m;
+	vi US,PS;
+	int x=0;string s;
+	for(int i=0; i< m; i++){
+		cin>>x>>s;
+		if(s=="USB"){
+			US.pb(x);
+		}
+		else{
+			PS.pb(x);
+		}
+	}
+	sort(all(US));
+	sort(all(PS));
+	ll sum=0,ans=0;
+	int SU = sz(US);
+	int SP = sz(PS);
+	if(SU<=U){
+		sum += accumulate(all(US),0ll);
+		US.erase(all(US));
+		ans += SU;
+	}
+	else{
+		sum += accumulate(US.begin(),US.begin()+U,0ll);
+		US.erase(US.begin(),US.begin()+U);
+		ans += U;
+	}
+	if(SP<=P){
+		sum += accumulate(all(PS),0ll);
+		ans += SP;
+		PS.erase(all(PS));
+	}
+	else{
+		sum += accumulate(PS.begin(),PS.begin()+P,0ll);
+		ans += P;
+		PS.erase(PS.begin(),PS.begin()+P);
+
+	}
+	if(B>0){
+			vector<ll> AB;
+		AB.reserve( US.size() + PS.size() ); // preallocate memory
+		AB.insert( AB.end(), US.begin(), US.end() );
+		AB.insert( AB.end(), PS.begin(), PS.end() );
+		sort(all(AB));
+		if(int(US.size() + PS.size()) >= B){
+			sum+= accumulate(AB.begin(),AB.begin()+B,0ll);
+			ans += B;
+		}
+		else{
+			sum+= accumulate(AB.begin(),AB.end(),0ll);
+			ans += (int(US.size() + PS.size()));
+		}
+
+	}
+	cout<<ans<<" "<<sum<<endl;
+
+
+	return 0;
+}

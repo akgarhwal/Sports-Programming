@@ -1,0 +1,40 @@
+/* http://codeforces.com/problemset/problem/508/B */
+/*
+	Author      : akgarhwal
+	Date        : 04-01-2017 11:05:24
+	Description : Antion and currency
+*/
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	string s;
+	cin>>s;
+	int sz = s.size();
+	int x = int(s[sz-1])-48;
+	int sm=-1,la=-1;
+	for(int i=0; i< sz; i++){
+		int d = int(s[i])-48;
+		if(d<x and d%2==0 and sm==-1){
+			sm=i;
+			break;
+		}
+		if(d>x and d%2==0){
+			la=i;
+		}
+	}
+	if(sm!=-1){
+		swap(s[sm],s[sz-1]);
+		cout<<s<<endl;
+	}
+	else if(la!=-1){
+		swap(s[la],s[sz-1]);
+		cout<<s<<endl;
+	}
+	else{
+		cout<<-1<<endl;
+	}
+	return 0;
+}

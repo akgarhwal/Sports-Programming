@@ -1,0 +1,47 @@
+/* http://codeforces.com/problemset/problem/688/A */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+/* akgarhwal */
+#include<bits/stdc++.h>
+using namespace std;
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef pair<int,int> ii;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+//Function
+bool strfun(string s){
+    int x = 0;
+    while(x<s.size()){
+        if(s[x++]=='0')
+            return false;
+    }
+    return true;
+}
+
+//main
+int main(){
+    int n,d;
+    cin>>n>>d;
+    int ans=0,tmp=0;
+    while(d--){
+        string s;
+        cin>>s;
+        if(!strfun(s)){
+            tmp++;
+        }
+        else{
+            ans = max(ans,tmp);
+            tmp=0;
+        }
+    }
+    cout<<max(ans,tmp)<<endl;
+    return 0;
+}

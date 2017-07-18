@@ -1,0 +1,43 @@
+/* http://codeforces.com/problemset/problem/14/B */
+/*
+	Author      : akgarhwal
+	Date        : 13-01-2017 19:45:40
+	Description : Young photographer
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int m[101][1001];
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int n,x0,a,b;
+	cin>>n>>x0;
+	vector<vector<int> > m(n+1,vector<int>(1001,0));
+	for(int i=1; i<= n; i++){
+		cin>>a>>b;
+		fill(m[i].begin()+min(a,b),m[i].begin()+max(a,b)+1,i);
+	}
+	int ans=1001,X=0;
+	for(int i=1; i< 1001; i++){
+		set<int> st;
+		for(int j=1; j<= n; j++){
+			st.insert(m[j][i]);
+		}
+		st.erase(0);
+		if(st.size()>=n){
+			ans = min(ans,abs(x0-i));
+			X=1;
+		}
+	}
+	if(!X){
+		ans=-1;
+	}
+	cout<<ans<<endl;
+	return 0;
+}

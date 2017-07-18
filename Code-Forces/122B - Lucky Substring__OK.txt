@@ -1,0 +1,33 @@
+/* http://codeforces.com/problemset/problem/122/B */
+/*
+	Author      : akgarhwal
+	Date        : 05-01-2017 22:34:37
+	Description : Luck Substring
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	string s;
+	cin>>s;
+	int f=0,S=0;
+	for(int i=0; i< s.size(); i++){
+		if(s[i]=='4') 	f++;
+		if(s[i]=='7') 	S++;
+
+	}
+	if(f>S){
+		cout<<"4";
+	}
+	else if(S>f){
+		cout<<"7";
+	}
+	else if(f==S and f!=0){
+		cout<<"4"<<endl;
+	}
+	else{
+		cout<<-1<<endl;
+	}
+	return 0;
+}

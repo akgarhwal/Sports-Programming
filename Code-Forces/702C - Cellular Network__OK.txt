@@ -1,0 +1,53 @@
+/* http://codeforces.com/problemset/problem/702/C */
+/* akgarhwal */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+#include<bits/stdc++.h>
+using namespace std;
+//input
+#define si(t) scanf("%d",&t)
+
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<string> vs;
+typedef pair<int,int> pii;
+typedef vector<pii> vpii;
+typedef set<int> si;
+typedef set<string> ss;
+typedef map<int,int> mii;
+typedef map<string,int> msi;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define mod 1000000007
+
+//main
+int main(){
+    int n,m;
+    si(n);si(m);
+    vi a(n,0);
+    vi b(m,0);
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+    for(int i=0;i<m;i++){
+        cin>>b[i];
+    }
+    int l=0,r=0,ans=0;
+    for(int i=0;i<n;i++){
+        r = abs(a[i]-b[l]);
+        while((l+1)!=m and r>=abs(a[i]-b[l+1])){
+            r = abs(a[i]-b[l+1]);
+            l++;
+        }
+        ans = max(ans,r);
+    }
+    cout<<ans<<endl;
+    return 0;
+}

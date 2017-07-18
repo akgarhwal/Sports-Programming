@@ -1,0 +1,92 @@
+/* http://codeforces.com/problemset/problem/716/B */
+/*       _                    _                  _ 
+    __ _| | ____ _  __ _ _ __| |____      ____ _| |
+   / _` | |/ / _` |/ _` | '__| '_ \ \ /\ / / _` | |
+  | (_| |   < (_| | (_| | |  | | | \ V  V / (_| | |
+   \__,_|_|\_\__, |\__,_|_|  |_| |_|\_/\_/ \__,_|_|
+             |___/                                 		
+
+When I wrote this, only God and I understood what I was doing
+Now, God only knows												*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+typedef long long ll;
+
+int main(){
+	string s;
+	cin>>s;
+	int first=0,last=0;
+	set<char> st;
+	map<char,int> mst;
+	int len = s.size();
+	//cout<<len<<endl;
+	if(len<26){
+		cout<<"-1";
+		return 0;
+	}
+	int co=0;
+	while(first<=(len-26)){
+
+		while(last < len and (st.size() + co)!=26){
+			if(s[last]=='?'){
+				co++;
+			}
+			else{
+				st.insert(s[last]);
+				mst[s[last]]++;
+			}
+			last++;
+		}
+		
+		if((last-first)==26 and (st.size() + co)==26){
+			//cout<<first<<"  "<<last<<endl;
+			vector<bool> ar(26,false);
+			vector<bool> aa(26,false);
+			for(int i=first;i<last;i++){
+				if(s[i]!='?'){
+					ar[s[i]-65]=true;
+				}
+			}
+			int x=0;
+			for(int i=first;i<last;i++){
+				if(s[i]=='?'){
+					while(ar[x]!=false){
+						x++;
+					}
+					s[i]=char(x+65);
+					x++;
+				}
+			}
+			for(int i=0;i<len;i++){
+				if(s[i]=='?')
+						s[i]='A';
+			}
+			cout<<s;
+			return 0;
+
+		}
+		char ch = s[first];
+		if(mst[ch]>1){
+			mst[ch]--;
+		}
+		else{
+			if(ch=='?'){
+				co--;
+			}
+			else{
+				st.erase(ch);
+			}
+			if(mst[ch]==1){
+				mst[ch]=0;
+			}
+		}
+
+		first++;
+	}
+	cout<<"-1";
+	return 0;
+}

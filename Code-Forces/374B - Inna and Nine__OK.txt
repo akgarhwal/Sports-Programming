@@ -1,0 +1,60 @@
+/* http://codeforces.com/problemset/problem/374/B */
+/*
+	Author      : akgarhwal
+	Date        : 13-01-2017 18:08:53
+	Description : Lets try this
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int findLen(int i,string s){
+	
+	int x = (int)(s[i]-'0');
+	int y = 9-x;
+	if(y==0){
+		return 1;
+	}
+	char X = s[i],Y = (char)(y+48);
+	int V = i%2,len=1;
+	//cout<<"X = "<<X<<"\tY = "<<Y<<endl;
+	for(int j=i+1; j< s.size(); j++){
+		if(j%2==V and s[j]==X){
+			len++;
+		}
+		else if(j%2 == 1-V and s[j]==Y){
+			len++;
+		}
+		else{
+			break;
+		}
+	}
+	//cout<<"IND = "<<i<<"\t Len = "<<len<<endl;
+	return len;
+}
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	string s;
+	cin>>s;
+	int SZ = s.size();
+	vector<int> v;
+	for(int i=0; i< SZ;){
+		int len = findLen(i,s);
+		if(len>1 and len%2==1){
+			v.push_back((len+1)/2);
+			//cout<<"Len = "<<(len+1)/2<<endl;
+		}
+		i = i+len;
+	}
+	ll ans=1;
+	for(int i=0; i< v.size(); i++){
+		ans  = ans*v[i];
+	}
+	cout<<ans<<endl;
+	return 0;
+}

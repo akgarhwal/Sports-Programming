@@ -1,0 +1,33 @@
+/* http://codeforces.com/problemset/problem/276/B */
+/*
+	Author      : akgarhwal
+	Date        : 04-01-2017 23:10:37
+	Description : Little Girl and Game
+*/
+
+#include <iostream>
+using namespace std;
+
+int main(){
+	string s;
+	cin>>s;
+	int a[26]={0};
+	for(int i=0; i< s.size(); i++){
+		a[s[i]-'a']++;
+	}
+	int count=0;
+	for(int i=0; i< 26; i++){
+		if(a[i]&1){
+			count++;
+		}
+	}
+	count = count>1?count-1:0;
+
+	if(count&1){
+		cout<<"Second";
+	}
+	else{
+		cout<<"First";
+	}
+	return 0;
+}

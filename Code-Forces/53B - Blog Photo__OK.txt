@@ -1,0 +1,53 @@
+/* http://codeforces.com/problemset/problem/53/B */
+/*
+	Author      : akgarhwal
+	Date        : 30-01-2017 10:35:31
+	Description : 
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef vector<int> vi; 
+typedef pair<int,int> ii; 
+#define sz(a) int((a).size()) 
+#define pb push_back 
+#define all(c) (c).begin(),(c).end() 
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++) 
+#define present(c,x) ((c).find(x) != (c).end()) 
+#define cpresent(c,x) (find(all(c),x) != (c).end()) 
+void check(ll h, ll w, ll &hmax, ll &wmax, bool b){
+	ll hnew = 1,wnew=0;
+	while(hnew<=h){
+		wnew = 0;
+		double w1 = hnew*0.8, w2 = hnew*1.25;
+		if(w >= w2) wnew = w2;
+		else if(w <=w2 && w>=w1) wnew = w;
+		if(hmax*wmax < hnew*wnew){
+			hmax = hnew;
+			wmax = wnew;
+		}
+		else if(hmax*wmax == hnew*wnew && hmax<hnew && b){
+			hmax = hnew;
+			wmax = wnew;
+		}
+		else if(hmax*wmax == hnew*wnew && wmax<wnew && !b){
+			hmax = hnew;
+			wmax = wnew;
+		}
+		hnew*=2;
+	}
+
+
+}
+
+int main(){
+	ll h,w;
+	cin>>h>>w;
+	ll hmax=0,wmax=0;
+	check(h,w,hmax,wmax,1);
+	check(w,h,wmax,hmax,0);
+
+	cout<<hmax<<" "<<wmax<<endl;
+}

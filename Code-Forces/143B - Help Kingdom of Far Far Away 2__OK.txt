@@ -1,0 +1,68 @@
+/* http://codeforces.com/problemset/problem/143/B */
+/*
+	Author      : akgarhwal
+	Date        : 08-01-2017 00:13:00
+	Description : Kingdom
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	string s;
+	cin>>s;
+	int doti=-1;
+	bool dot = false;
+	for(int i=0; i< s.size(); i++){
+		if(s[i]=='.'){
+			dot=true;
+			doti=i;
+			break;
+		}
+	}
+	bool sign = false;
+	if(s[0]=='-'){
+		cout<<"($";
+		sign = true;
+	}
+	else{
+		cout<<"$";
+	}
+	if(!dot)
+		doti = s.size();
+
+	reverse(s.begin()+sign,s.begin()+doti);
+	string t(s.begin()+sign,s.begin()+doti); 
+	//cout<<t<<endl;
+	string z="";
+	for(int i=0; i< t.size(); i++){
+		z+=t[i];
+		if(i%3==2 and i!=t.size()-1){
+			z+=',';
+		}
+	}
+	reverse(z.begin(),z.end());
+	cout<<z;
+
+	if(dot){
+		if(doti+3 <= s.size()){
+			cout<<"."<<s[doti+1]<<s[doti+2];
+		}
+		else if(doti+2 == s.size()){
+			cout<<"."<<s[doti+1]<<"0";	
+		}
+		else{
+			cout<<".00";
+		}
+	}
+	else{
+		cout<<".00";
+	}
+	if(sign){
+		cout<<")";
+	}
+	return 0;
+}

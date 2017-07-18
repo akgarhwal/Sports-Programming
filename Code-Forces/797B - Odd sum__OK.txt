@@ -1,0 +1,57 @@
+/* http://codeforces.com/problemset/problem/797/B */
+/*
+	Author      : akgarhwal
+	Date        : 15-04-2017 20:21:55
+	Description : 
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long 			ll;
+typedef vector<int> 		vi; 
+typedef pair<int,int> 		ii; 
+#define sz(a) 				int((a).size()) 
+#define pb 					push_back 
+#define all(c) 				(c).begin(),(c).end() 
+#define tr(c,i) 			for(auto i = (c).begin(); i != (c).end(); i++) 
+#define present(c,x) 		((c).find(x) != (c).end()) 
+#define cpresent(c,x) 		(find(all(c),x) != (c).end())  
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int n;
+	cin>>n;
+	ll sum=0;
+	int miN = INT_MIN;
+	int mi = INT_MAX;
+	for(int i=0; i< n; i++){
+		int x;
+		cin>>x;
+		if(x >0){
+			sum += x;
+			if(x%2==1){
+				mi = min(mi,x);
+			}
+		}
+
+		if(x < 0 and abs(x)%2==1){
+			miN = max(miN,x);
+		}
+
+	}
+	if(sum == 0 ){
+		cout<<miN<<endl;
+	}
+	else if(sum%2 ==0 ){
+		ll res = sum - mi;
+		res = max(res,sum+miN);
+		cout<<res<<endl;
+	}
+	else{
+		cout<<sum<<endl;
+	}
+	return 0;
+}

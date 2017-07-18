@@ -1,0 +1,63 @@
+/* http://codeforces.com/problemset/problem/701/B */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+/* akgarhwal */
+#include<bits/stdc++.h>
+using namespace std;
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef pair<int,int> ii;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+
+//main
+int main(){
+    int n,m;
+    cin>>n>>m;
+    int r[n+1]={0};
+    int c[n+1]={0};
+    ll total = (ll)n*n;
+    ll x,y,ro=0,co=0;
+    ll mx=0;
+    for(int i=0;i<m;i++){
+        cin>>x>>y;
+        int col=0,row=0;
+        if(r[x]==0){
+            r[x]=-1;
+            ro++;
+            row++;
+        }
+        if(c[y]==0){
+            c[y]=-1;
+            co++;
+            col++;
+        }
+        if(row+col==2){
+            mx = 2*(ll)n-1;
+            mx = mx-(ro+co-row-col);
+        }
+        else if(row==1){
+            mx = n-co;
+        }
+        else if(col==1){
+            mx = n-ro;
+        }
+        else{
+            mx=0;
+        }
+        if(total-mx<=0){
+            total=0;mx=0;}
+        cout<<total-mx<<" ";
+        total = total-mx;
+
+    }
+
+    return 0;
+}

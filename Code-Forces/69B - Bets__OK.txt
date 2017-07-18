@@ -1,0 +1,36 @@
+/* http://codeforces.com/problemset/problem/69/B */
+/*
+	Author      : akgarhwal
+	Date        : 13-01-2017 18:31:53
+	Description : Bets
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	vector<int> money(101,0);
+	vector<int> time(101,1001);
+	int n,m,l,r,t,c;
+	cin>>n>>m;
+	for(int i=0; i< m; i++){
+		cin>>l>>r>>t>>c;
+		for(int i=l;i<=r;i++){
+			if(time[i] > t){
+				time[i] = t;
+				money[i] =c;
+			}
+		}
+	}
+	ll ans=0;
+	for(int i=1; i<=n ; i++){
+		ans += money[i];
+	}
+	cout<<ans<<endl;
+	return 0;
+}

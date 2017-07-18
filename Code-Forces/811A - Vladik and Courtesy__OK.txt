@@ -1,0 +1,33 @@
+/* http://codeforces.com/problemset/problem/811/A */
+// author = "akgarhwal"
+
+#include <iostream>
+using namespace std;
+
+int main(){
+	
+	int a,b;
+	cin>>a>>b;
+	bool ans = true;
+	int i=1;
+	while(a>=0 and b>=0){
+		if(i%2==1){
+			a = a-i;
+		}
+		else{
+			b = b-i;
+		}
+		if(b<0){
+			cout<<"Valera\n";
+			return 0;
+		}
+		if(a<0){
+			cout<<"Vladik\n";
+			return 0;
+		}
+		i++;
+	}
+
+
+	return 0;
+}

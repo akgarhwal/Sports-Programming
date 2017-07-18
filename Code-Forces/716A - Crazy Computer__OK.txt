@@ -1,0 +1,39 @@
+/* http://codeforces.com/problemset/problem/716/A */
+/*       _                    _                  _ 
+    __ _| | ____ _  __ _ _ __| |____      ____ _| |
+   / _` | |/ / _` |/ _` | '__| '_ \ \ /\ / / _` | |
+  | (_| |   < (_| | (_| | |  | | | \ V  V / (_| | |
+   \__,_|_|\_\__, |\__,_|_|  |_| |_|\_/\_/ \__,_|_|
+             |___/                                 		
+
+When I wrote this, only God and I understood what I was doing
+Now, God only knows												*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+typedef long long ll;
+
+int main(){
+	int n,c;
+	cin>>n>>c;
+	vector<int> a(n);
+	int co=0,x=0,y=0;
+	cin>>x;
+	for(int i=1;i<n;i++){
+		cin>>y;
+		if((y-x)>c){
+			co=0;
+		}
+		else{
+			co++;
+		}
+		x=y;
+
+	}
+	cout<<(co+1);
+
+	return 0;
+}

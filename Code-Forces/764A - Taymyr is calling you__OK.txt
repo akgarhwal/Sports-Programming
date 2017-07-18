@@ -1,0 +1,41 @@
+/* http://codeforces.com/problemset/problem/764/A */
+/*
+	Author      : akgarhwal
+	Date        : 02-02-2017 18:51:43
+	Description : lets try
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef vector<int> vi; 
+typedef pair<int,int> ii; 
+#define sz(a) int((a).size()) 
+#define pb push_back 
+#define all(c) (c).begin(),(c).end() 
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++) 
+#define present(c,x) ((c).find(x) != (c).end()) 
+#define cpresent(c,x) (find(all(c),x) != (c).end()) 
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int n,m,z;
+	cin>>n>>m>>z;
+	set<int> st;
+	int x=n;
+	while(x<=z){
+		st.insert(x);
+		x=x+n;
+	}
+	x = m;
+	while(x<=z){
+		st.insert(x);
+		x=x+m;
+	}
+	int T = (z/n)+(z/m);
+	cout<<T - sz(st);
+	return 0;
+}

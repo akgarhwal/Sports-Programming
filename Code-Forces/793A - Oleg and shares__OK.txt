@@ -1,0 +1,26 @@
+/* http://codeforces.com/problemset/problem/793/A */
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main(){
+    
+    ll n,k;
+    cin>>n>>k;
+    vector<ll> a(n,0);
+    ll mi = INT_MAX;
+    
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        mi = min(a[i],mi);
+    }
+    ll ans=0;
+    for(int i=0;i<n;i++){
+        ans += (a[i]-mi)/k;
+        if((a[i]-mi)%k){
+            cout<<"-1";
+            return 0;
+        }
+    }
+    cout<<ans;
+}

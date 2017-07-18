@@ -1,6 +1,6 @@
 /*
 	Author      : akgarhwal
-	Date        : 10-07-2017 19:49:53
+	Date        : 16-07-2017 20:04:41
 	Description : Language Used -> C++14
 */
 
@@ -25,6 +25,49 @@ typedef pair<int,int>	pi;
 
 int main(){
 
-	
+	int n;
+	cin>>n;
+	string a="",b="";
+	int last=0;
+	int sa=0,sb=0;
+	while(n--){
+		int x;
+		cin>>x;
+		if(x<0){
+			b += to_string(abs(x));
+			sb += abs(x);
+			last = 2; 
+		}
+		else{
+			last=1;
+			sa += x;
+			a += to_string(x);
+		}
+	}
+	if(sa > sb){
+		cout<<"first";
+	}
+	else if(sb > sa){
+		cout<<"second";
+	}
+	else{
+
+		if(a>b){
+			cout<<"first";
+		}
+		else if(b>a){
+			cout<<"second";
+		}
+		else{
+			if(last==1){
+				cout<<"first";
+			}
+			else{
+				cout<<"second";
+			}
+		}
+
+	}
+
 	return 0;
 }

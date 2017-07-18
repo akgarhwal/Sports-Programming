@@ -1,0 +1,35 @@
+/* http://codeforces.com/problemset/problem/281/B */
+/*
+	Author      : akgarhwal
+	Date        : 11-01-2017 19:30:47
+	Description : Nearest Fraction
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long double ll;
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	ll x,y,n;
+	cin>>x>>y>>n;
+	long double xy = x/(long double)y;
+	ll a,b;
+	long double mn = 1e9;
+	for(int i=1; i<=n ; i++){
+		ll res = floor(xy*i)/i;
+		if(abs(xy-res)<mn){
+			b=i;a=floor(xy*i);mn = abs(xy-res);
+		}
+		res = ceil(xy*i)/i;
+		if(abs(xy-res)<mn){
+			b=i;a=ceil(xy*i);mn = abs(xy-res);
+		}
+	}
+	cout<<a<<"/"<<b<<endl;
+
+	return 0;
+}

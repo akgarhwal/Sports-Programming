@@ -1,0 +1,73 @@
+/* http://codeforces.com/problemset/problem/812/B */
+/*
+	Author      : akgarhwal
+	Date        : 04-06-2017 11:37:59
+	Description : Language Used -> C++14
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long	ll;
+typedef vector<int>	vi;
+typedef pair<int,int>	pi;
+#define F		first
+#define S		second
+#define PB		push_back
+#define MP		make_pair
+#define sz(a)		int((a).size())
+#define all(c)		(c).begin(),(c).end()
+#define REP(i,a,b)	for(int i = a; i < b; i++)
+#define tr(c,i)		for(auto i = (c).begin(); i != (c).end(); i++)
+#define present(c,x)	((c).find(x) != (c).end())
+#define cpresent(c,x)	(find(all(c),x) != (c).end())
+#define MOD		1000000007 	/* 10^9+7*/
+
+int last[2][16];
+int n,m,N=-1;
+int f(int fl,int side){
+	//cout<<fl<<" "<<side<<endl;
+	if(fl == N){
+		return (last[side][fl]);
+	}
+	if(last[side][fl] == -1){
+		return 1+f(fl+1,side);
+	}
+	return 1+min((2*last[side][fl]+f(fl+1,side)),m+1+f(fl+1,1-side));
+}	
+
+
+int main(){
+	cin>>n>>m;
+	for(int i=n-1; i>=0; i--){
+		string s;
+		cin>>s;
+		int l=-1,p=-1;
+		for(int j=0; j< sz(s); j++){
+			if(s[j] == '1' and l==-1){
+				l=j;
+			}
+			if(s[j] == '1'){
+				p=j;
+			}
+		}
+		if(l!=-1 and N==-1){
+			N = i;
+		}
+		last[0][i] = p;
+		if(l!=-1)
+			last[1][i] = m-l+1;
+		else{
+			last[1][i]=-1;
+		}
+	}
+	if(N==-1){
+		cout<<0;
+		return 0;
+	}
+	cout<<f(0,0)<<endl;
+	
+
+	
+	return 0;
+}
