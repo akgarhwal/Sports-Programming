@@ -1,5 +1,5 @@
 # Sports-Programming
-It contains problem solution of online judge like HackerRank, CodeChef, CodeForce,UVA,SPOJ etc.
+It contains problem solution of online judge like :
 <ol>
   <li> <a href="https://www.hackerrank.com/" >Hacker Rank</a> </li>
   <li> <a href="http://www.spoj.com/" >SPOJ</a> </li>
