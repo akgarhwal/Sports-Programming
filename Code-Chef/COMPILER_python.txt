@@ -1,0 +1,24 @@
+def res(line):
+    ans = 0
+    i = 0
+    stack = []
+    for x in line:
+        i += 1
+        if x == '<':
+            stack.append('<')
+        elif x == '>':
+            if len(stack) > 0 and stack[-1] == '<':
+                stack.pop()
+            else:
+                return ans
+            
+        if len(stack) ==0 :
+            ans = i
+            
+    return ans
+
+tc = int(input())
+while tc:
+    line = raw_input()
+    print(res(line))
+    tc -= 1

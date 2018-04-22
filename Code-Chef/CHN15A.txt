@@ -1,0 +1,11 @@
+tc = int(input())
+while tc > 0:
+    n,k = map(int,input().split())
+    arr = list(map(int,input().split()))
+    new_arr = [x+k for x in arr]
+    ans = 0
+    for x in new_arr:
+        if x%7==0:
+            ans += 1
+    print(ans)
+    tc -= 1

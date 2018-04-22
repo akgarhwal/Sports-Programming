@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while (tc--) {
+        int p,q;
+        cin>>p>>q;
+        double res=0;
+        if(p>1000){
+            res = p*q;
+            res = res - (res/10);
+            printf("%.6f\n",res);
+        }
+        else{
+            printf("%.6f\n",(double)(p*q));
+        }
+    }
+    return 0;
+}

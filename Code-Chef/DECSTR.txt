@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define s(x) scanf("%lld",&x)
+typedef long long ll;
+string fun(int k){
+    string s = "";
+    char ch ='a'+k;
+    s=s+(ch);
+    while(k--){
+        s+=(--ch);
+    }
+    return s;
+}
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        int k;
+        cin>>k;
+        int x=k/25;
+        string t ="",u="";
+        while(x--){
+            u = fun(25);
+            t=u+t;
+        }
+        u="";
+        if(k%25!=0){
+         u=fun(k%25);
+        }
+
+        cout<<u+t<<endl;
+    }
+}

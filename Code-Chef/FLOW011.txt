@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while (tc--) {
+        double sal;
+        cin>>sal;
+        double temp=sal;
+        sal+=(temp>=1500?500:(temp/10));
+        sal+=(temp>=1500?(0.98*temp):(0.9*temp));
+        cout<<sal<<endl;
+    }
+    return 0;
+}

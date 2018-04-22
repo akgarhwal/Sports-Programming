@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		string s;
+		cin>>s;
+		int x=0,y=0;
+		for(int i=0;i<s.size();i++){
+			if(s[i]=='N'){
+				y = y+1;
+			}
+			if(s[i]=='S'){
+				y = y-1;
+			}
+			if(s[i]=='E'){
+				x=x+1;
+			}
+			if(s[i]=='W'){
+				x=x-1;
+			}
+		}
+		if(x==0 && y>0){
+			cout<<"NORTH"<<endl;
+		}
+		else if(y==0 && x>0){
+			cout<<"EAST"<<endl;
+		}
+		else if(y==0 && x<0){
+			cout<<"WEST"<<endl;
+		}
+		else if(x==0 && y<0){
+			cout<<"SOUTH"<<endl;
+		}
+		else if(x>0 && y>0){
+			cout<<"NORTHEAST"<<endl;
+		}
+		else if(x<0 && y>0){
+			cout<<"NORTHWEST"<<endl;
+		}
+		else if(x>0 && y<0){
+			cout<<"SOUTHEAST"<<endl;
+		}
+		else if(x<0 && y<0){
+			cout<<"SOUTHWEST"<<endl;
+		}
+		else{
+		}
+	}
+	return 0;
+}

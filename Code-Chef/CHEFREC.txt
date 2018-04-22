@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+  int tc;
+  cin>>tc;
+  while(tc--){
+  int r,c;
+  cin>>r>>c;
+  int a[r][c];
+  for(int i=0;i<r;i++){
+    for(int j=0;j<c;j++){
+      cin>>a[i][j];
+    }
+  }
+  int i=0,j=0,x=0,y=0;
+  int count =0;
+  while(count < (r*c)){                                     //count for element
+    while(i<r && j>=0){                                     //checcking boundary condition
+      cout<<a[i][j]<<" ";
+      count++;
+      j--;
+      i++;
+    }
+    y++;                                                    //restore the value
+    if(y==c){               //if column reach to           //of i and j , we use
+      y=c-1;                // end then increment row      // two temp variable
+      x++;                                                 //  x and y
+    }
+    i=x;
+    j=y;
+  }}
+}

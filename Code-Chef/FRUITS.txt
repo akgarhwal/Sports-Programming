@@ -1,0 +1,16 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+int tc;
+cin>>tc;
+while(tc--){
+int a,o,k;
+cin>>a>>o>>k;
+if(abs(a-o)<k)
+	cout<<0<<endl;
+else{
+	cout<<abs(a-o)-k<<endl;
+	}
+	}
+	}

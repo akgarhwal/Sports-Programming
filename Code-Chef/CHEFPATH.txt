@@ -1,0 +1,21 @@
+        #include<iostream>
+        int main(){
+        	int tc;
+        	std::cin>>tc;
+        	while(tc--){
+        		long long int x,y;
+        		std::cin>>x>>y;
+        		if(x*y == 1){
+        			std::cout<<"No"<<std::endl;
+        		}
+        		else if((x==1 && y>2 )|| (y==1 && x>2) ){
+        			std::cout<<"No"<<std::endl;
+        		}
+        		else if((x*y)%2==0){
+        			std::cout<<"Yes"<<std::endl;
+        		}
+        		else{
+        			std::cout<<"No"<<std::endl;
+        		}
+        	}
+        }  

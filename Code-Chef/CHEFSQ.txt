@@ -1,0 +1,36 @@
+    #include<iostream>
+    using namespace std;
+    int main(){
+    	int tc;
+    	cin>>tc;
+    	while(tc--){
+    		int n,m;
+    		cin>>n;
+    		int *a = new int[n];
+    		for(int i=0;i<n;i++){
+    			cin>>a[i];
+    		}
+    		cin>>m;
+    		int *b = new int[m];
+    		for(int i=0;i<m;i++){
+    			cin>>b[i];
+    		}
+    		int x=0,f=0;
+    		for(int i=0;i<n;i++){
+    			if(a[i]==b[x] && x<m){
+    				x=x+1;
+    			}
+    			//cout<<x<<endl;
+    			if(x==m){
+    				f=1;
+    				break;
+    			}
+    		}
+    		if(f){
+    			cout<<"Yes\n";
+    		}
+    		else{
+    			cout<<"No\n";
+    		}
+    	}
+    } 

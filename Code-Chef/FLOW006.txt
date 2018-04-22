@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int sum_of_digit(int n){
+	if(n==(n%10))
+		return n;
+	else
+		return ((n%10)+sum_of_digit(n/10));
+}
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int n;
+		cin>>n;
+		cout<<sum_of_digit(n)<<endl;
+	}
+}

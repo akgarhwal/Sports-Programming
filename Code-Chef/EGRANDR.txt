@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        int n;
+        cin>>n;
+        int a[n];
+        long double avg = 0;
+        long sum=0;
+        bool top=false,fail= false;
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+            if(a[i]==5){
+                top=true;
+            }
+            if(a[i]==2){
+                fail=true;
+            }
+            sum+=a[i];
+
+        }
+        avg = double(sum)/n;
+        if(avg>=4.0 and top and !fail){
+            cout<<"Yes\n";
+        }
+        else{
+            cout<<"No\n";
+        }
+    }
+}

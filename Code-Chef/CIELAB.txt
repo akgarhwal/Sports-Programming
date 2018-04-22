@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+int a,b;
+cin>>a>>b;
+int r = a-b;
+int d = r%10;
+if(d==9)
+	r=r-1;
+else
+	r=r+1;
+cout<<r<<endl;
+	
+}

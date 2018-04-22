@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+		int n,q,mi=1e9+1,mx=0,x;
+		cin>>n>>q;
+		for(int i=0;i<n;i++){
+			cin>>x;
+			mi=min(mi,x);
+			mx=max(mx,x);
+		}
+		while(q--){
+			cin>>x;
+			if(mi<=x and x<=mx){
+				cout<<"Yes\n";
+			}
+			else{
+				cout<<"No\n";
+			}
+		}
+}

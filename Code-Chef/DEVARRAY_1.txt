@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	
+		int n,q,mi,mx,x;
+		cin>>n>>q;
+		if(n==1){
+			cin>>mi;
+			mx=mi;
+		}
+		else{
+		cin>>mi>>mx;
+		}
+		for(int i=0;i<n-2;i++){
+			cin>>x;
+			mi=min(mi,x);
+			mx=max(mx,x);
+		}
+		while(q--){
+			cin>>x;
+			if(mi<=x and x<=mx){
+				cout<<"Yes\n";
+			}
+			else{
+				cout<<"No\n";
+			}
+		}
+}

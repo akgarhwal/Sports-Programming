@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+long long int gcd(int x,int y){
+	return y==0?x:gcd(y,x%y);
+}
+long long int lcm(int x,int y){
+	return ((x*y)/gcd(x,y));
+}
+int main()
+{
+	int tc;
+	cin>>tc;
+	while(tc--){
+	int a,b;
+	cin>>a>>b;
+	cout<<gcd(a,b)<<" "<<lcm(a,b)<<endl;
+	}
+	return 0;
+}

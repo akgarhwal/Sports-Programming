@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int n;
+		cin>>n;
+		int a[n];
+		for(int i=0;i<n;i++){
+			cin>>a[i];
+		}
+		int sum=0,mlt=1,count=0;
+		for(int i=0;i<n;i++){
+			sum=a[i];
+			mlt=a[i];
+			for(int j=i+1;j<n;j++){
+				sum+=a[j];
+				mlt*=a[j];
+				if(sum==mlt)
+					count++;
+				
+			}
+		}
+		cout<<count+n<<endl;
+	}
+}

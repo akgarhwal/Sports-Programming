@@ -1,0 +1,74 @@
+                #include<bits/stdc++.h>
+                using namespace std;
+                #include <iostream>
+    			#include <utility>
+    #include <boost/multiprecision/cpp_int.hpp>
+    using boost::multiprecision::cpp_int;
+     
+            	#define gc getchar_unlocked
+                void scanintll(long long int &x)
+                {
+                    register long long int c = gc();
+                    x = 0;
+                    for(;(c<48 || c>57);c = gc());
+                    for(;c>47 && c<58;c = gc()) {x = (x<<1) + (x<<3) + c - 48;}
+                }
+                void scanint(int &x)
+                {
+                    register int c = gc();
+                    x = 0;
+                    for(;(c<48 || c>57);c = gc());
+                    for(;c>47 && c<58;c = gc()) {x = (x<<1) + (x<<3) + c - 48;}
+                }
+               
+        	   long long int l=0,w=0;
+        	   int n=0; 
+               cpp_int fun(int h[],int r[],cpp_int x){
+               	cpp_int a=0,t=0;
+                   for(int i=0;i<n;i++){
+                   			t= (h[i]+(x*r[i]));
+                            if(t>=l){
+                                a += t;
+                            }
+                   }
+               		return a;
+        	   }
+                int main(){
+                   scanint(n);
+                    scanintll(w);
+                    scanintll(l);
+                    //cin>>n>>w>>l;
+                    int h[n],r[n];
+                    cpp_int a=0;
+                    for(int i=0;i<n;i++){
+                        scanint(h[i]);
+                        scanint(r[i]);
+                  //    cin>>h[i]>>r[i]; 
+                        if(h[i]>=l){
+                            a += h[i];
+                        }
+                    }
+                    if(a>=w){
+                    	cout<<0<<endl;
+                    	return 0;
+                	}
+                	
+                	cpp_int beg = 0,end =1000000000000000000,mid=0;
+         
+        		mid=(beg+end)/2;                       // Find Mid Location of Array
+         
+        		while(beg<=end)      // Compare Item and Value of Mid
+        		{
+        			a=fun(h,r,mid);
+        		//	cout<<mid<<"  "<<a<<endl;
+        			if(a<w)
+        			beg=mid+1;
+        			else
+        			end=mid-1;
+        			mid=(beg+end)/2;
+        			
+        		}
+                	
+                    cout<<mid+1<<endl;
+                    return 0;
+                }    

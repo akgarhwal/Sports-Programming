@@ -1,0 +1,12 @@
+tc = int(input())
+while tc > 0:
+    n = int(input())
+    str = input()
+    count = 0
+    ans = 0
+    for s in str:
+        if s == '1':
+            count += 1
+            ans += count
+    print(ans)
+    tc -= 1

@@ -1,0 +1,79 @@
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+/* akgarhwal */
+#include<bits/stdc++.h>
+using namespace std;
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef pair<int,int> ii;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+//sum of d
+int sod(ll n){
+    ll a=0;
+    while(n){
+        a += n%10;
+        n=n/10;
+    }
+    return a;
+}
+int cd=0;
+//largest digit
+int ld(ll n){
+    int d=9;
+    while(n){
+        d=max(d,(int)n%10);
+        n=n/10;
+        cd++;
+    }
+    return d;
+}
+ll n;
+ll fun(int cd){
+    ll num = 1;
+    cd--;
+    while(cd--){
+        num = num*10+1;
+    }
+    if(num>n){
+        num=num/10;
+    }
+    return num;
+}
+//main
+int main(){
+
+    cin>>n;
+    cd=0;
+    int larged = ld(n);
+    //cout<<"LD  = "<<larged<<endl;
+    int start = larged*cd + 2*cd;
+    int count=0,sum=0;
+    start = n-start;
+    //cout<<start<<endl;
+    if(n==1){
+        cout<<1<<endl;
+        return 0;
+    }
+    for(int i=start;i<n;i++){
+        sum=i;
+        int x = sod(i);
+        sum+=x;
+        x = sod(x);
+        sum+=x;
+        if(sum==n){
+            count++;
+        //    cout<<i<<"  ";
+        }
+
+    }
+    cout<<count<<endl;
+    return 0;
+}

@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		string a;
+		cin>>a;
+		int len=a.length();
+		if(len==1){
+			cout<<"NO"<<endl;
+		}
+		else if(len%2==0){
+			int f=0;
+			for(int i=0;i<len/2;i++){
+				if(a[i]!=a[(len/2)+i]){
+					f=1;
+					break;
+				}
+			}
+			if(f){
+				cout<<"NO\n";
+			}
+			else{
+				cout<<"YES\n";
+			}
+		}
+		else{
+			int flag1=1,flag2=1;
+			int x=0,y=len/2,count=0;
+			for(int i=0;i<len/2;i++){
+				if(a[i]!=a[y]){
+					count++;
+					i--;
+				}
+				y++;
+				if(count>1){
+					flag1=0;
+					break;
+				}
+			}
+			if(count<=1){
+				cout<<"YES\n";
+				continue;
+			}
+			y=0;
+			count=0;
+			for(int i=(len+1)/2;i<len;i++){
+				if(a[i]!=a[y]){
+					count++;
+					i--;
+				}
+				y++;
+				if(count>1){
+					flag2=0;
+					break;
+				}
+			}
+			if(flag1||flag2){
+				cout<<"YES\n";
+			}
+			else{
+				cout<<"NO\n";
+			}
+		}
+	}
+}

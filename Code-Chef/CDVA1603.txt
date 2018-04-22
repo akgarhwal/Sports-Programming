@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int n,q;
+		cin>>n>>q;
+		vector<double> a(n);
+		for(int i=0;i<n;i++)
+			cin>>a[i];
+		sort(a.begin(),a.end());
+		double ele;
+		while(q--){
+			cin>>ele;
+			int p=upper_bound(a.begin(),a.end(),ele) - a.begin();
+			cout<<n-p<<endl;
+		} 
+	}
+}

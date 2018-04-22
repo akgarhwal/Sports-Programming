@@ -1,0 +1,152 @@
+#include <cmath>
+#include <cstdio>
+#include <bits/stdc++.h>
+using namespace std;
+#define si(t) scanf("%d",&t)
+
+int LP[1000002][2]={0};
+typedef vector<int> vi;
+int readInt () {
+    bool minus = false;
+    int result = 0;
+    char ch;
+    ch = getchar();
+    while (true) {
+        if (ch == '-') break;
+        if (ch >= '0' && ch <= '9') break;
+        ch = getchar();
+    }
+    if (ch == '-') minus = true; else result = ch-'0';
+    while (true) {
+        ch = getchar();
+        if (ch < '0' || ch > '9') break;
+        result = result*10 + (ch - '0');
+    }
+    if (minus)
+        return -result;
+    else
+        return result;
+}
+int lpf(int n){
+    if(n<=1)    return 1;
+    if(n<=3)    return n;
+    if(n%2==0)  return 2;
+    if(n%3==0)  return 3;
+    int c = int(sqrt(n)+1e-7);
+    for(int i=5;i<=c;i+=6){
+        if(n%i==0){
+            return i;
+        }
+        if(n%(i+2)==0){
+            return i+2;
+        }
+    }
+    return n;
+}
+
+void funlpf(){
+    for(int i=1;i<=1000000;i++){
+        LP[i][0] = lpf(i);
+        LP[i][1] = i/LP[i][0];
+    }
+}
+class SegmentTree {
+private: vi st, A;
+  int n;
+  int left (int p) { return p << 1; }     // same as binary heap operations
+  int right(int p) { return (p << 1) + 1; }
+
+  void build(int p, int L, int R) {                           // O(n log n)
+    if (L == R)                            // as L == R, either one is fine
+      st[p] = LP[(A[L])][0];                                         // store the index
+    else {                                // recursively compute the values
+      build(left(p) , L              , (L + R) / 2);
+      build(right(p), (L + R) / 2 + 1, R          );
+      int p1 = st[left(p)], p2 = st[right(p)];
+      st[p] = max(LP[(p1)][0], LP[(p2)][0]) ;
+  } }
+
+  int rmq(int p, int L, int R, int i, int j) {
+          // O(log n)
+    if (i >  R || j <  L) return -1; // curre]
+    if (L >= i && R <= j) return st[p];               // inside query range
+
+     // compute the min position in the left and right part of the interval
+    int p1 = rmq(left(p) , L              , (L+R) / 2, i, j);
+    int p2 = rmq(right(p), (L+R) / 2 + 1, R          , i, j);
+
+    if (p1 == -1) return p2;   // if we try to access segment outside query
+    if (p2 == -1) return p1;                               // same as above
+    return max(p1,p2); }          // as as in build routine
+
+  int update_point(int p, int L, int R, int idx, int lidx) {
+    int i = idx, j = lidx;
+    if (i > R || j < L)
+      return st[p];
+      if (L > R or L > lidx or R < idx)
+              return -1;
+
+if(st[p]==1){
+    return 1;
+}
+if (L == R ) {
+        if(A[L]!=1){
+      A[L] = LP[A[L]][1];
+      return st[p] =LP[(A[L])][0];
+        }
+        else{
+            return st[p]=1;
+        }
+    }
+
+
+
+    int p1, p2;
+    p1 = update_point(left(p) , L              , (L + R) / 2, idx,lidx);
+    p2 = update_point(right(p), (L + R) / 2 + 1, R          , idx, lidx);
+
+    return st[p] = max(p1,p2) ;
+  }
+
+public:
+  SegmentTree(const vi &_A) {
+    A = _A; n = (int)A.size();              // copy ocal usage
+    st.assign(4 * n, 0);            //
+    build(1, 0, n - 1);                                  // recursive build
+  }
+
+  int rmq(int i, int j) { return rmq(1, 0, n - 1, i, j); }   // overloading
+
+  int update_point(int idx,int lidx) {
+    return update_point(1, 0, n - 1, idx, lidx); }
+};
+
+int main() {
+    funlpf();
+    int tc;
+    tc=readInt ();
+    while(tc--){
+        int n,m;
+    n=readInt();
+        m=readInt ();
+        vi A(n,0);
+        for(int i=0;i<n;i++){
+            A[i] = readInt ();
+        }
+    int x,y,t;                   // copy the contents to a vector
+  SegmentTree st(A);
+while(m--){
+    t=readInt ();
+    x= readInt ();
+    y=readInt ();
+  if(t==1){
+ printf("%d ",(st.rmq(x-1, y-1)));//<<endl;
+  }
+  else{
+      st.update_point(x-1,y-1);
+  }
+  }
+  printf("\n");
+}
+  return 0;
+}

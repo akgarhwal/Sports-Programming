@@ -1,0 +1,17 @@
+tc = int(input())
+while tc > 0 :
+    x,y,k,n = map(int,input().split())
+    reqp = x-y
+    ans = False
+    if reqp <= 0:
+        ans = True
+    while n > 0 :
+        p,c = map(int,input().split())
+        if p>=reqp and c<=k:
+            ans = True
+        n = n -1
+    if ans:
+        print("LuckyChef")
+    else:
+        print("UnluckyChef")
+    tc -= 1

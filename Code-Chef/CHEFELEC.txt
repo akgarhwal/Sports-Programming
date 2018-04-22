@@ -1,0 +1,67 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        int a[n];
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        vector<int> p1;
+        for(int i=0;i<n;i++){
+            if(s[i]=='1'){
+                p1.push_back(i);
+            }
+        }
+        long long ans=0;
+        int x=p1[0];
+        if(x!=0){
+            ans+=(a[x]-a[0]);
+        }
+        int end = p1.size();
+        x= p1[end-1];
+        if(x!=(n-1)){
+            ans+=(a[n-1]-a[x]);
+        }
+        int z = 1;
+        if(p1.size()==1){
+            cout<<ans<<endl;
+            continue;
+        }
+        else{
+            int y=0;
+            while(z<p1.size()){
+                x=p1[z-1];
+                y=p1[z++];
+                long sum=1e9;
+                if(x+2==y){
+                    long tem = min(a[x+1]-a[x],a[y]-a[x+1]);
+                    sum = min(sum,tem);
+                }
+                else{
+                for(int i=x;i<y;i++){
+                    long left = a[i]-a[x];
+                    long right = a[y]-a[i+1];
+                    long temp = left+right;
+                    sum = min(sum,temp);
+
+                }
+                }
+                ans+=sum;
+                //cout<<"X = "<<x<<"\t y = "<<y<<"\tSum = "<<sum<<endl;
+                // if(z+1<p1.size()){
+                //     x=y;
+                //     y=p1[z];
+                // }
+            }
+        }
+
+
+        cout<<ans<<endl;
+    }
+}

@@ -1,0 +1,71 @@
+/*       _                    _                  _ 
+    __ _| | ____ _  __ _ _ __| |____      ____ _| |
+   / _` | |/ / _` |/ _` | '__| '_ \ \ /\ / / _` | |
+  | (_| |   < (_| | (_| | |  | | | \ V  V / (_| | |
+   \__,_|_|\_\__, |\__,_|_|  |_| |_|\_/\_/ \__,_|_|
+             |___/                                 		
+
+When I wrote this, only God and I understood what I was doing
+Now, God only knows												*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+#define endl "\n"
+#define S(t) scanf("%d",&t)
+#define S2(x,y) scanf("%d %d",&x,&y)
+#define SL(t) scanf("%lld",&t)
+#define P(t) printf("%d ",t)
+#define PL(t) printf("%lld ",t)
+#define NL printf("\n");
+#define ALL(x) x.begin(),x.end()
+#define rep(i,n) for(int (i)=0;(i)<(int)(n);++(i))
+#define rer(i,l,n) for(int (i)=(int)(l);(i)<=(int)(n);++(i))
+
+typedef long long ll;
+typedef pair<int,int> ii;
+typedef vector<int> vi;
+typedef vector<long long> vl;
+
+int main(){
+	string s;
+	cin>>s;
+	vi Adj[10];
+	int n = s.size();
+	for(int i=0;i<n;i++){
+		Adj[s[i]-48].push_back(i);
+	}
+	int start = int(s[0]-48);
+	int end = int(s[n-1]-48);
+	vi dist(n,-1);
+	queue<int> q;
+	dist[0]=0;
+	q.push(0);
+	while(!q.empty()){
+
+		int x = q.front();q.pop();
+		if(x==n-1){
+			break;
+		}
+		int u = int(s[x]-48);
+		int SZ=Adj[u].size();
+		rep(i,SZ){
+			int v = Adj[u][i];
+			if(dist[v]==-1){
+				dist[v]=dist[x]+1;
+				q.push(v);
+			}
+		}
+		Adj[u].clear();
+		 if(x-1 >=0 && dist[x-1]==-1){
+         q.push(x-1);
+         dist[x-1] = dist[x] + 1;
+       }
+       if(x+1<n && dist[x+1]==-1){
+         q.push(x+1);
+         dist[x+1] = dist[x] + 1;
+       }
+	}
+	cout<<dist[n-1]<<endl;
+	return 0;
+}

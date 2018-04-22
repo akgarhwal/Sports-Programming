@@ -1,0 +1,76 @@
+/*
+	Author      : akgarhwal
+	Date        : 02-06-2017 14:50:41
+	Description : Language Used -> C++14
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long	ll;
+typedef vector<int>	vi;
+typedef pair<int,int>	pi;
+#define F		first
+#define S		second
+#define PB		push_back
+#define MP		make_pair
+#define sz(a)		int((a).size())
+#define all(c)		(c).begin(),(c).end()
+#define REP(i,a,b)	for(int i = a; i < b; i++)
+#define tr(c,i)		for(auto i = (c).begin(); i != (c).end(); i++)
+#define present(c,x)	((c).find(x) != (c).end())
+#define cpresent(c,x)	(find(all(c),x) != (c).end())
+#define MOD		1000000007 	/* 10^9+7*/
+
+ll a[100005];
+ll n,l,A,b;
+ll check(ll m,ll n,ll l){
+
+	ll ans=0;
+	for(int i=0; i< n; i++){
+		ans += abs(m-a[i]);
+		m+=l;
+	}
+	return ans;
+
+}
+
+
+int main(){
+
+	int tc;
+	cin>>tc;
+	while(tc--){
+		
+		cin>>n>>l>>A>>b;
+		for(int i=0; i< n; i++){
+			cin>>a[i];
+		}
+		sort(a,a+n);
+
+		ll lo = A,hi = b-n*l;
+		ll ans=1e18;
+		while(lo<=hi){
+			ll m1 = (lo+hi)/2;
+			ll m2 = m1+1;
+			if(m2 > b-n*l){
+				//cout<<"Hello";
+				ans = min(ans,check(m1,n,l));
+				break;
+			}
+			ll A1 = check(m1,n,l),B1 = check(m2,n,l);
+			if(A1>=B1){
+				ans = min(B1,ans);
+				lo = m1+1;
+			}
+			else{
+				ans = min(A1,ans);
+				hi = m1-1;
+			}
+		}
+		cout<<ans<<endl;
+
+	}
+	
+	return 0;
+}

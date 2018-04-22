@@ -1,0 +1,75 @@
+/* akgarhwal */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+#include<bits/stdc++.h>
+using namespace std;
+//input
+#define si(t) scanf("%d",&t)
+#define sl(t) scanf("%lld",&t)
+#define sf(t) scanf("%f",&t)
+#define sdb(t) scanf("%lf",&t)
+#define schar(c) scanf("%c",&c)
+#define sstring(s) scanf("%s",s)
+#define ssi(a,b) scanf("%d%d",&a,&b)
+#define ssl(a,b) scanf("%lld%lld",&a,&b)
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<string> vs;
+typedef pair<int,int> pii;
+typedef vector<pii> vpii;
+typedef set<int> si;
+typedef set<string> ss;
+typedef map<int,int> mii;
+typedef map<string,int> msi;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define mod 1000000007
+
+//main
+int main(){
+    int n;
+    si(n);
+    vs s(n,"");
+    for(int i=0;i<n;i++){
+        cin>>s[i];
+    }
+    sort(all(s));
+    vi a(n,1);
+    // for(int i=0;i<n;i++){
+    //     cout<<s[i]<<endl;
+    // }
+    int count=0;
+    for(int i=0;i<n;i++){
+        if(a[i]==1){
+        int l=i+1;
+        while(l<n and s[i]==s[l]){
+            l++;
+        }
+        if(a[l]==1){
+        int len = s[l].size();
+        int len1 = s[i].size();
+        string temp = s[l],temp2 = s[i];
+        //cout<<temp<<endl;
+        if(len ==len1 and temp[len-2]=='k' and temp[len-1]=='i'){
+            temp[len-1] = 'a';
+        if(temp2[len-2]=='k' and temp2[len-1]=='a' and temp == s[i]){
+            count++;
+            a[i]=0;
+            a[l]=0;
+        }
+    }
+    }
+    }
+    }
+    cout<<count<<endl;
+
+    return 0;
+}

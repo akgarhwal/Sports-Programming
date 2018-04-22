@@ -1,0 +1,47 @@
+// author = "akgarhwal"
+
+#include <bits/stdc++.h>
+#include <unistd.h>
+using namespace std;
+
+typedef long long ll;
+
+int mul(int a[],int n,int x){
+
+	int carry = 0,i=0;
+	for(i=0; i < n ; i++){
+		
+		int temp = carry + a[i]*x;
+		a[i] = temp%10;
+		carry = temp/10;
+
+	}
+	while(carry){
+		a[i++] = carry%10;
+		carry = carry/10;
+	}
+	return i;
+}
+
+int main(){
+
+
+	int t;
+	cin>>t;
+	while(t--){
+	int x;
+	int a[10000]={1};
+	cin>>x;
+
+	int sz=1;
+	for(int i=1; i<= x; i++){
+		sz = mul(a,sz,i);
+	}
+	//cout<<"Factorial("<<x<<") = ";
+		for(int i=sz-1; i>=0 ; i--){
+			cout<<a[i];
+		}
+		cout<<endl;
+	}
+	return 0;
+}

@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while (tc--) {
+        char c;
+        cin>>c;
+        if(c=='B' or c=='b')
+            cout<<"BattleShip\n";
+        else if(c=='C' or c=='c')
+            cout<<"Cruiser\n";
+        else if(c=='D' or c=='d')
+            cout<<"Destroyer\n";
+        else
+            cout<<"Frigate\n";
+    }
+    return 0;
+}

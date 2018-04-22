@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef pair<int, int> ii;
+typedef vector<ii> vii;
+typedef vector<int> vi;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        ll n,m;
+        cin>>n>>m;
+        vector<bool> a(n+1,true);
+        for(int i=0;i<m;i++){
+            int x;
+            cin>>x;
+            a[x]=false;
+        }
+        int c=0;
+        vi chef,ass;
+        for(int i=1;i<=n;i++){
+            if(a[i]){
+                if(c%2==0)
+                    chef.push_back(i);
+                else
+                    ass.push_back(i);
+                c++;
+            }
+        }
+        for(int x:chef)
+            cout<<x<<" ";
+        cout<<endl;
+        for(int x:ass)
+            cout<<x<<" ";
+        cout<<endl;
+    }
+    return 0;
+}

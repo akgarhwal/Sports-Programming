@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	int cur[]={100,50,10,5,2,1};
+	while(tc--){
+		int n,i=0;
+		cin>>n;
+		int count=0;
+		while(i<6&&n){
+			if(cur[i]<=n){
+				count+=n/cur[i];
+				n=n%cur[i];
+			}
+			i++;
+		}
+		cout<<count<<endl;
+	}
+}

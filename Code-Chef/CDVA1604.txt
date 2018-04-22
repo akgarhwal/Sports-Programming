@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int n;
+		cin>>n;
+		if(n==1)
+		{
+			cout<<1<<endl;
+		 } 
+		else if((n&n-1 )== 0)
+		 {
+			cout<<n<<endl;
+		}
+		else
+		{
+			int x=log2(n);
+			int y=pow(2,x);
+			cout<<2*(n-y)<<endl;
+		}
+	}
+}

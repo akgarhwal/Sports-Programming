@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int scale=1;
+    int b1=1,b2=2,b3=3,b4=4,b5=5;
+    int n=3;
+    cout<<scale<<endl;
+    int response=0;
+    cout<<n<<" "<<b1<<" "<<b3<<" "<<b1<<endl;
+    cout<<n<<" "<<b2<<" "<<b4<<" "<<b2<<endl;
+    cin>>response;
+    if(response==0){
+        cout<<2<<"\n"<<b5<<endl;
+    }
+    else if(response==1){
+        cout<<2<<"\n"<<b3<<endl;
+    }
+    else if(response==-1){
+        cout<<2<<"\n"<<b4<<endl;
+    }
+    else if(response==2){
+        cout<<2<<"\n"<<b1<<endl;
+    }
+    else if(response==-2){
+        cout<<2<<"\n"<<b2<<endl;
+    }
+    
+    return 0;
+}
