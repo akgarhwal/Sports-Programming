@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef pair<int, int> ii;
+typedef vector<ii> vii;
+typedef vector<int> vi;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        double h,s;
+        cin>>h>>s;
+        double b=0,l=0;
+        if(h*h - 4*s >=0){
+        double x=1.0*sqrt(1.0*(h*h + 4*s));
+         double y =1.0*sqrt(1.0*(h*h - 4*s));
+
+         double b = (x+y)/2.0;
+         double p = (x-y)/2.0;
+         double a[]={b,p,h};
+        sort(a,a+3);
+        printf("%.6lf %.6lf %.6lf\n",a[0],a[1],a[2]);
+        }
+        else
+        cout<<"-1"<<endl;
+    }
+    return 0;
+}

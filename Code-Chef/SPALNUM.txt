@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+int X(int n){
+	int x=n,s=0;
+	for(;n!=0;s=s*10+(n%10),n=n/10);
+	if(x==s)
+		return 1;
+	else
+		return 0;
+}
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int l,r;
+		long long sum=0;
+		cin>>l>>r;
+		for(int i=l;i<=r;i++){
+			if(X(i)==1)
+				sum+=i;
+		}
+		cout<<sum<<endl;
+	}
+}

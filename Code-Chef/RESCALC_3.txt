@@ -1,0 +1,90 @@
+/* akgarhwal */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+#include<bits/stdc++.h>
+using namespace std;
+//input
+#define si(t) scanf("%d",&t)
+#define sl(t) scanf("%lld",&t)
+#define ssi(a,b) scanf("%d%d",&a,&b)
+#define ssl(a,b) scanf("%lld%lld",&a,&b)
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<string> vs;
+typedef pair<int,int> pii;
+typedef vector<pii> vpii;
+typedef set<int> si;
+typedef set<string> ss;
+typedef map<int,int> mii;
+typedef map<string,int> msi;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define mod 1000000007
+
+//main
+int main(){
+    int tc;
+    si(tc);
+    while(tc--){
+        ll n;
+        cin>>n;
+        vl score(n,0);
+        for(ll i=0;i<n;i++){
+            ll x=0,y=0;
+            cin>>x;
+            vector<bool> CH(7,false);
+            for(int j=0;j<x;j++){
+                cin>>y;
+                CH[y]=true;
+            }
+            int db=0;
+            for(int z=1;z<=6;z++){
+                if(CH[z]==true){
+                    db++;
+                }
+            }
+            if(db==4){
+                score[i] = 1+x;
+            }
+            else if(db==5){
+                score[i] = 2+x;
+            }
+            else if(db==6){
+                score[i] = 4+x;
+            }
+            else{
+                score[i] =x;
+            }
+        }
+        ll pos=0,count=1;
+        for(ll i=1;i<n;i++){
+            if(score[i]>score[pos]){
+                count=0;
+                pos=i;
+            }
+            if(score[i]==score[pos]){
+                count++;
+            }
+        }
+        //cout<<count<<endl;
+        if(pos==0 and count==1){
+            cout<<"chef"<<endl;
+        }
+        else if(count==1){
+            cout<<pos+1<<endl;
+        }
+        else{
+            cout<<"tie"<<endl;
+        }
+
+    }
+    return 0;
+}

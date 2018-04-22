@@ -1,0 +1,21 @@
+    #include<bits/stdc++.h>
+    using namespace std;
+    int main(){
+    	int tc;
+    	cin>>tc;
+    	while(tc--){
+    		int n;
+    		cin>>n;
+    		string s;
+    		cin>>s;
+    		int a[n];
+    		for(int i=0;i<n;i++){
+    				cin>>a[i];
+    			}
+    		if(n==1 and s=="Dee" and a[0]%2==0){
+    			cout<<"Dee\n";
+    		}
+    		else
+    		cout<<"Dum"<<endl;
+    	}
+    } 

@@ -1,0 +1,8 @@
+## inputs
+tc = int(input())
+while tc > 0 :
+    n = int(input())
+    arr = list(map(int,input().split()))
+    mi = n * min(arr)
+    print(sum(arr) - mi)
+    tc -= 1

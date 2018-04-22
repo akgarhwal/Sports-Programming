@@ -1,0 +1,19 @@
+// not yet complete
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while (tc--) {
+        int n,x,y,ans=0;
+        cin>>n;
+        cin>>x>>y;
+        ans=1;
+        for (size_t i = 1; i < n; i++) {
+            cin>>x>>y;
+            ans = ans^(i+1);
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+}

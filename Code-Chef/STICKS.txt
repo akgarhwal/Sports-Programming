@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef pair<ll, ll> ii;
+typedef vector<ii> vii;
+typedef vector<ll> vi;
+int main(){
+    ll tc;
+    cin>>tc;
+    while(tc--){
+        ll n,x,mx=0;
+        cin>>n;
+        ll a[n+1]={0};
+        memset(a,0,sizeof a);
+        for(ll i=0;i<n;i++){
+            cin>>x;
+            a[x]++;
+            mx=max(mx,x);
+        }
+        ll l=0,w=0;
+        for(ll i=mx;i>=1;i--){
+            if(a[i]>=2 ){
+                if(l<i){
+                    l=i;
+                }
+                else if(w<i){
+                    w=i;
+                }
+            }
+        }
+
+        for(ll i=mx;i>=1;i--){
+            if( a[i]>=4 and i*i > l*w){
+                l=i;w=i;
+            }
+        }
+
+        if(l==0 or w==0){
+            cout<<-1<<endl;
+        }
+        else{
+            cout<<(l*w)<<endl;
+        }
+    }
+    return 0;
+}

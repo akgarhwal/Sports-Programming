@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define s(x) scanf("%lld",&x)
+typedef long long ll;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        ll n,k;
+        cin>>n>>k;
+        if(k==0){
+            cout<<0<<" "<<n<<endl;
+            continue;
+        }
+        if(n==0){
+            cout<<n<<" "<<0<<endl;
+            continue;
+        }
+        cout<<n/k<<" "<<n%k<<endl;
+    }
+}

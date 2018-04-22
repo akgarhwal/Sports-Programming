@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int n;
+		cin>>n;
+		string s;
+		cin>>s;
+		long sum=0;
+		int odd=1000000;
+		int *a = new int[n];
+		for(int i=0;i<n;i++){
+			cin>>a[i];
+			sum+=a[i];
+			if(a[i]%2==1 && odd>a[i]){
+				odd=a[i];
+			}
+		}
+		if(s=="Sad"){
+			if(sum%2==0){
+				cout<<sum<<endl;
+			}
+			else{
+				if(odd%2==0){
+					cout<<"Sad\n";
+				}
+				else{
+					cout<<sum-odd<<endl;
+				}
+			}
+		}
+		else{
+			if(sum%2==1){
+				cout<<sum<<endl;
+			}
+			else{
+				if(odd%2==0){
+					cout<<"Sad\n";
+				}
+				else{
+					cout<<sum-odd<<endl;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(int argc, char const *argv[]) {
+    int tc;
+    scanf("%d",&tc);
+    while(tc--){
+      int n;
+      scanf("%d",&n);
+      int a[n];
+      for (int i=0;i <n;i++){
+        scanf("%d",&a[i]);
+      }
+      long long int count=0,len=0;
+      for(int i=0;i<n;i++){
+      	len=0;
+        for(int j=i;j<n-1;j++){
+          if(a[j+1]>=a[j]){
+            len++;
+          }
+          else{
+            break;
+          }
+        }
+        i=i+len;
+        count+=(((len+1)*len)/2);
+      }
+      cout<<count+n<<endl;
+    }
+  return 0;
+}

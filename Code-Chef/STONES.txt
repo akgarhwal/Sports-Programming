@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        string s,t;
+        cin>>s>>t;
+        int a[200]={0};
+        memset(a,0,sizeof a);
+        int i=0;
+        while(i<s.size()){
+            a[s[i++]]++;
+        }
+        i=0;
+        int co=0;
+        while(i<t.size()){
+            if(a[t[i]]>0){
+                co++;
+                //a[t[i]]--;
+            }
+            i++;
+        }
+        cout<<co<<endl;
+    }
+}

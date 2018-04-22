@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int winner=0,lead=0,sf,ss;
+    long x=0,y=0;
+    for(int i=0;i<n;i++){
+        cin>>sf>>ss;
+        x+=sf;
+        y+=ss;
+        if(abs(x-y)>lead){
+            winner = x>y?1:2;
+            lead = x>y?x-y:y-x;
+        }
+    }
+    cout<<winner<<" "<<lead<<endl;
+    return 0;
+}

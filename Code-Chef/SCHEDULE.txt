@@ -1,0 +1,96 @@
+/*
+	Author      : akgarhwal
+	Date        : 10-03-2017 12:36:35
+	Description : 
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long 			ll;
+typedef vector<int> 		vi; 
+typedef pair<int,int> 		ii; 
+#define sz(a) 				int((a).size()) 
+#define pb 					push_back 
+#define all(c) 				(c).begin(),(c).end() 
+#define tr(c,i) 			for(auto i = (c).begin(); i != (c).end(); i++) 
+#define present(c,x) 		((c).find(x) != (c).end()) 
+#define cpresent(c,x) 		(find(all(c),x) != (c).end())  
+
+bool isOK(vector<int> &v,int mid,int k){
+	mid++;
+	int x=0;
+	for(int i=0; i< sz(v); i++){
+		x += (v[i])/mid;
+	}
+	return x<=k;
+}
+bool isansOne(string s,int k){
+	int x1=0,x2=0;
+	int bit1=0,bit2=1;
+	for(int i=0; i< sz(s); i++){
+		if(s[i]-'0'==bit1){
+		}
+		else{
+			x1++;
+		}
+		bit1 = 1-bit1;
+	}
+	if(x1<=k) return true;
+	for(int i=0; i< sz(s); i++){
+		if(s[i]-'0'==bit2){
+		}
+		else{
+			x2++;
+		}
+		bit2 = 1-bit2;
+	}
+	if(x2<=k) return true;
+	return false;
+}
+
+
+int main(){
+	//freopen("input.txt", "r", stdin);
+	//freopen("output.txt", "w", stdout);
+
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int n,k;
+		cin>>n>>k;
+		string s;
+		cin>>s;
+		if(isansOne(s,k)){
+			cout<<1<<endl;
+			continue;
+		}
+		vi a;
+		int x=0;
+		for(int i=0; i< sz(s)-1; i++){
+			if(s[i]==s[i+1]){
+				x++;
+			}
+			else{
+				a.pb(x+1);
+				x=0;
+			}
+		}
+		a.pb(x+1);
+		int f=2,l=1e6;
+		int ans=0;
+		while(f<=l){
+			int mid = (f+l)>>1;
+			if(isOK(a,mid,k)){
+				//cout<<"mid == "<<mid<<endl;
+				ans= mid;
+				l = mid-1;
+			}
+			else{
+				f = mid+1;
+			}
+		}
+		cout<<ans<<endl;
+	}
+	return 0;
+}

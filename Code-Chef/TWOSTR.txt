@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		string s,t;
+		cin>>s;
+		cin>>t;
+		int f=0;
+		for(int i=0;i<s.size();i++){
+			if(s[i]==t[i] || s[i]=='?' || t[i]=='?'){
+				
+			}
+			else{
+				f=1;
+				break;
+			}
+		}
+		if(f==1){
+			cout<<"No"<<endl;
+		}
+		else{
+			cout<<"Yes"<<endl;
+		}
+	}
+}

@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int n;
+		cin>>n;
+		string s;
+		cin>>s;
+		int *a = new int[n];
+		for(int i=0;i<n;i++){
+			cin>>a[i];
+		}
+		int x=0;
+		int ans=0;
+		if(s=="Sad")
+			x=1;
+		else
+			x=0;
+		int i=0;
+		for(;i<n;i++){
+			x=x+a[i]%2;
+			ans += a[i];
+			if(x==1)
+				break;
+			
+		}
+		if(i==n)
+			cout<<"Sad"<<endl;
+		else
+			cout<<ans<<endl;
+	}
+}
