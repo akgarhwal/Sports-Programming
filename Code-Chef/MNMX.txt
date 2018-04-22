@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define min(a,b) a>b?b:a
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		long long n,a,b,cost=0;
+		cin>>n;
+		cin>>a;
+		for(int i=0;i<n-1;i++){
+			cin>>b;
+			a=min(a,b);
+		}
+		cout<<(a*(n-1))<<endl;
+	}
+}

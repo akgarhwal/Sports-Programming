@@ -1,0 +1,166 @@
+/* akgarhwal */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+#include<bits/stdc++.h>
+using namespace std;
+//input
+#define si(t) scanf("%d",&t)
+#define sl(t) scanf("%lld",&t)
+#define sf(t) scanf("%f",&t)
+#define sdb(t) scanf("%lf",&t)
+#define schar(c) scanf("%c",&c)
+#define sstring(s) scanf("%s",s)
+#define ssi(a,b) scanf("%d%d",&a,&b)
+#define ssl(a,b) scanf("%lld%lld",&a,&b)
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<string> vs;
+typedef pair<int,int> pii;
+typedef vector<pii> vpii;
+typedef set<int> si;
+typedef set<string> ss;
+typedef map<int,int> mii;
+typedef map<string,int> msi;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define mod 1000000007
+//Function
+
+vi f(10,0);
+int fun(int rem){
+    if(rem==0){
+        return 0;
+    }
+    if(f[rem]>0){
+        f[rem]--;
+        return 0;
+    }
+    if(rem==2){
+        if(f[5]>0){
+            f[5]--;
+            return 0;
+        }
+        else if(f[8]>0){
+            f[8]--;
+            return 0;
+        }
+
+    }
+    if(rem==1){
+        if(f[4]>0){
+            f[4]--;
+            return 0;
+        }
+        else if(f[7]>0){
+            f[7]--;
+            return 0;
+        }
+
+    }
+    if(rem==2){
+
+        if(f[1]>=2){
+            f[1] = f[1]-2;
+        }
+        else if(f[1]>0 and f[4]>0){
+            f[1]--;
+            f[4]--;
+        }
+        else if(f[4]>=2){
+            f[4] = f[4]-2;
+        }
+        else if(f[1]>0 and f[7]>0){
+            f[1]--;
+            f[7]--;
+        }
+        else if(f[7]>0 and f[4]>0){
+            f[7]--;
+            f[4]--;
+        }
+        else if(f[7]>=2){
+            f[7] = f[7]-2;
+        }
+        return 0;
+    }
+
+    if(rem==1){
+        if(f[2]>=2){
+            f[2] = f[2]-2;
+        }
+        else if(f[5]>0 and f[2]>0){
+            f[5]--;
+            f[2]--;
+        }
+        else if(f[5]>=2){
+            f[5] = f[5]-2;
+        }
+        else if(f[8]>0 and f[2]>0){
+            f[8]--;
+            f[2]--;
+        }
+        else if(f[8]>0 and f[5]>0){
+            f[8]--;
+            f[5]--;
+        }
+        else if(f[8]>=2){
+            f[8] = f[8]-2;
+        }
+
+    }
+    return 0;
+
+}
+//main
+int main(){
+    int tc;
+    si(tc);
+    while(tc--){
+        int n,a;
+        si(n);
+        for(int i=0;i<=9;i++)
+            f[i]=0;
+        int sum=0;
+        for(int i=0;i<n;i++){
+            cin>>a;
+            f[a]++;
+            sum+=a;
+        }
+
+        int rem=sum%3;
+    //    cout<<"Rem = "<<rem<<endl;
+            fun(rem);
+        int flag=0;
+        string s;
+        if(f[0]>0){
+        for(int i=9;i>=0;i--){
+            while(f[i]>0){
+                s += (i+48);
+                f[i]--;
+            }
+        }
+        set<char> st;
+        for(int i=0;i<s.size();i++){
+            st.insert(s[i]);
+        }
+        if(st.size()==1){
+            cout<<0;
+        }
+        else{
+            cout<<s;
+        }
+        }
+        else{
+            cout<<-1;
+        }
+        cout<<endl;
+    }
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        string s;
+        cin>>s;
+        int len = s.size();
+        string b,a = s.substr(0,len/2);
+        if(len%2==0)
+        	b = s.substr(len/2,len/2);
+        else
+        	b = s.substr(len/2+1,len/2);
+        //cout<<a<<endl<<b<<endl;
+        int as[26]={0},bs[26]={0};
+        for(int i=0;i<a.size();i++){
+        	as[a[i]-97]++;
+        	bs[b[i]-97]++;
+		}
+		int f=1;
+		for(int i=0;i<26;i++){
+			if(as[i]!=bs[i]){
+				f=0;break;
+			}
+		}
+		if(f)
+			cout<<"YES\n";
+		else
+			cout<<"NO\n";
+    }
+    return 0;
+}

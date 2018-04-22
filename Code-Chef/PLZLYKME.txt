@@ -1,0 +1,49 @@
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+/* akgarhwal */
+#include<bits/stdc++.h>
+using namespace std;
+// typedef
+typedef long double ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef pair<int,int> ii;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+ll pow2(ll x,int y){
+    ll ans=1;
+    ll square=x;
+    if(y==0)
+        return 1;
+        while(y!=0){
+            if(y%2)
+                ans=ans*square;
+            square=(square*square);
+            y=y/2;
+
+        }
+    return ans;
+}
+//main
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        ll l,d,s,c;
+        cin>>l>>d>>s>>c;
+        ll res = pow2(c+1,(d-1));
+        res = res*s;
+        if(res>=l){
+            cout<<"ALIVE AND KICKING\n";
+        }
+        else{
+            cout<<"DEAD AND ROTTING\n";
+        }
+    }
+    return 0;
+}

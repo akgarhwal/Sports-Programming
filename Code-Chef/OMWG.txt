@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int llt;
+typedef pair<int, int> ii;
+typedef vector<ii> vii;
+typedef vector<int> vi;
+int main(){
+  int tc;
+  cin>>tc;
+  while(tc--){
+    llt n,m;
+    cin>>n>>m;
+    llt ans;
+    if(n==1 or m==1){
+        ans = abs(n-m);
+    }
+    else {
+    llt x = min(n,m);
+    llt y = max(n,m);
+     ans = (y*(x+(x-1))) - x;
+    }
+    cout<<ans<<endl;
+  }
+  return 0;
+}

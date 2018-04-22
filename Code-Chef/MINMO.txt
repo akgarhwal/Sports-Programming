@@ -1,0 +1,56 @@
+/* akgarhwal */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+#include<bits/stdc++.h>
+using namespace std;
+//input
+#define si(t) scanf("%d",&t)
+#define sl(t) scanf("%lld",&t)
+#define ssi(a,b) scanf("%d%d",&a,&b)
+#define ssl(a,b) scanf("%lld%lld",&a,&b)
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<string> vs;
+typedef pair<int,int> pii;
+typedef vector<pii> vpii;
+typedef set<int> si;
+typedef set<string> ss;
+typedef map<int,int> mii;
+typedef map<string,int> msi;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define mod 1000000007
+
+//main
+int main(){
+    int n,m;
+    cin>>n>>m;
+    vi x(m,0);
+    vi y(m,0);
+    for(int i=0;i<m;i++){
+        cin>>x[i];
+    }
+    for(int i=0;i<m;i++){
+        cin>>y[i];
+    }
+    int X1=1,X2=1,X3=n,X4=n;
+    int Y1=1,Y2=n,Y3=1,Y4=n;
+    int res=0;
+    for(int i=0;i<m;i++){
+        int md = abs(X1-x[i])+abs(Y1-y[i]);
+        md = min(md,(abs(X2-x[i])+abs(Y2-y[i])));
+        md = min(md,(abs(X3-x[i])+abs(Y3-y[i])));
+        md = min(md,(abs(X4-x[i])+abs(Y4-y[i])));
+        res+=md;
+    }
+    cout<<res<<endl;
+    return 0;
+}

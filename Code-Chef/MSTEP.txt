@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        map<int, int> matrix;
+        int r,c,ele=0;
+	long long count=0;
+        cin>>c;
+	r=c;
+        for (size_t i = 0; i < r; i++) {
+            for (size_t j = 0; j < c; j++) {
+                cin>>ele;
+                matrix[ele]=count++;
+            }
+        }
+        int p1=matrix[1],z=2;
+        count=0;
+        int x2,y2,x1=(p1/r),y1=p1%c;
+        while(z<=(r*c)){
+            p1 = matrix[z++];
+            x2=p1/r;
+            y2=p1%c;
+            count+= (abs(x2-x1)+abs(y2-y1));
+            x1=x2;
+            y1=y2;
+        }
+        cout<<count<<endl;
+    }
+    return 0;
+}

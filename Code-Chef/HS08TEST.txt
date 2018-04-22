@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	double y;
+	int x;
+	cin>>x>>y;
+	if((double)x>(y-0.50) or x%5!=0){
+		printf("%.2f",y);
+	}
+	else{
+		double z = (y-x)-0.50;
+		printf("%.2f",z);
+	}
+}

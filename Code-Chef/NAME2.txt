@@ -1,0 +1,62 @@
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+/* akgarhwal */
+#include<bits/stdc++.h>
+using namespace std;
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef pair<int,int> ii;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+
+//main
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        string s,t,res;
+        cin>>s>>t;
+        int l=0,r=0;
+        while(l<s.size()){
+            if(s[l]==t[r]){
+                l++;
+            }
+            if(l==s.size()){
+                res = "YES";
+                break;
+            }
+            r++;
+            if(r==t.size()){
+                res = "NO";
+                break;
+            }
+        }
+
+        l=0,r=0;
+        if(res=="NO"){
+            while(l<t.size()){
+                if(t[l]==s[r]){
+                    l++;
+                }
+                if(l==t.size()){
+                    res = "YES";
+                    break;
+                }
+                r++;
+                if(r==s.size()){
+                    res = "NO";
+                    break;
+                }
+            }
+        }
+        cout<<res<<endl;
+    }
+    return 0;
+}

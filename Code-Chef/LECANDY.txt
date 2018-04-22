@@ -1,0 +1,11 @@
+## inputs
+tc = int(input())
+while tc > 0 :
+    n,m = map(int,input().split())
+    arr = list(map(int,input().split()))
+    total = sum(arr)
+    if total <= m:
+        print("Yes\n")
+    else:
+        print("No\n")
+    tc -= 1

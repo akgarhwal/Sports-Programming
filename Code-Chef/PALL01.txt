@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+int X(int n){
+	int x=n,s=0;
+	for(;n!=0;s=s*10+(n%10),n=n/10);
+	if(x==s)
+		return 1;
+	else
+		return 0;
+}
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+        int n;
+		cin>>n;
+		if(X(n)==1)
+			cout<<"wins\n";
+		else
+			cout<<"losses\n";
+	}
+}

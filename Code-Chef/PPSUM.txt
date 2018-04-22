@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int finalsum(int n){
+	int su=0;
+	while(n!=0){
+		su+=n;
+		n--;
+	}
+	return su;
+}
+int sum(int d,int n){
+	int res=0;
+	while(d!=0){
+		res=0;
+		d--;
+		int x=finalsum(n);
+		res+=x;
+		n=x;
+	}
+	return res;
+}
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int d,n;
+		cin>>d>>n;
+		cout<<sum(d,n)<<endl;		
+	}
+}

@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		long long n;
+		cin>>n;
+		long four=0;
+		while(n!=0){
+			if(n%10==4)
+				four++;
+			n=n/10;
+		}
+		cout<<four<<endl;
+	}
+}

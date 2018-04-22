@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool isPrime(int n){
+    if(n<=1)    return false;
+    if(n<=3)    return true;
+    if(!(n%2 and n%3))  return false;
+    int c =int(sqrt(n)+1e-7);
+    for(int i=5;i<=c;i+=6){
+        if(!(n%i and n%(i+2)))  return false;
+    }
+    return true;
+}
+int main(){
+    vector<int> prime;
+    prime.push_back(2);
+    prime.push_back(3);
+    for(int i=5;i<10100;i+=6){
+        if(isPrime(i)){
+            prime.push_back(i);
+        }
+        if(isPrime(i+2)){
+            prime.push_back(i+2);
+        }
+    }
+    long a[10001]={0};
+    memset(a,0,sizeof a);
+    for(int i=6;i<=10000;i++){
+        int k=0;
+        long count=0;
+        for(int q=prime[k];q<=i;q=prime[++k]){
+            int p = i-(2*q);
+            if(isPrime(p)){
+                count++;
+
+            }
+        }
+        a[i]=count;
+    }
+    int tc;
+    cin>>tc;
+    while(tc--){
+        int x;
+        cin>>x;
+        cout<<a[x]<<endl;
+    }
+}

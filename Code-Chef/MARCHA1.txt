@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        int n,m;
+        cin>>n>>m;
+        bool a[n][m+1];
+        memset(a,false,sizeof a);
+        int input[n]={0};
+        for(int i=0;i<n;i++){
+            a[i][0]=true;
+            cin>>input[i];
+        }
+        a[0][input[0]]=true;
+        for(int i=1;i<n;i++){
+            for(int j=1;j<=m;j++){
+                if(input[i]>j){
+                    a[i][j] = a[i-1][j];
+                }
+                else{
+                    a[i][j] = a[i-1][j] or a[i-1][j-input[i]];
+                }
+            }
+        }
+        if(a[n-1][m]){
+            cout<<"Yes\n";
+        }
+        else{
+            cout<<"No\n";
+        }
+    }
+}

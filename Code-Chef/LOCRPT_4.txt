@@ -1,0 +1,12 @@
+import re
+s = input()
+l = len(s)
+ans=0
+for i in range(l):
+    s1 = s[0:i]
+    s2 = s[i:l]
+    if s1 in s2:
+        if len(s1)>ans:
+            ans = len(s1)
+print(ans)
+        

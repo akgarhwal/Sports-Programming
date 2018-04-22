@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int xyz(int a, int b) {
+    while(b) b ^= a ^= b ^= a %= b;
+	return a;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int a,b;
+		cin>>a>>b;
+		int x =xyz(a,b);
+		int ans = (a*b)/(x*x);
+		cout<<ans<<endl;
+	}
+}

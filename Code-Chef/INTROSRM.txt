@@ -1,0 +1,12 @@
+    #include <bits/stdc++.h>
+    using namespace std;
+    int main(){
+    	int tc;
+    	cin>>tc;
+    	while(tc--){
+    		long long int n,s=0;
+    		cin>>n;
+    		for(s=0;n!=0;s=s*10+(n%10),n=n/10);
+    		cout<<s<<endl;
+    	}
+    } 

@@ -1,0 +1,22 @@
+def freq_calc(str):
+    fr = {}
+    for s in str:
+        if s in fr:
+            fr[s] += 1
+        else:
+            fr[s] = 1
+    return fr
+
+tc = int(input())
+while tc > 0 :
+    str = input()
+    n = len(str)
+    first = str[:n//2]
+    second = str[(n//2+(n%2)):]
+    d1 = freq_calc(first)
+    d2 = freq_calc(second)
+    if d1 == d2:
+        print("YES")
+    else:
+        print("NO")
+    tc -= 1

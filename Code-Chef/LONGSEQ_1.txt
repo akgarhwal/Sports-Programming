@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+		int tc;
+		cin>>tc;
+		while(tc--){
+			string n;
+			cin>>n;
+			int c1=0,c0=0;
+			for(char x:n ){
+					if(x=='0'){
+							c0++;
+					}
+					else
+							c1++;
+			}
+			if(c0==1 or c1==1){
+					cout<<"YES\n";
+			}
+			else
+					cout<<"NO\n";
+		}
+}

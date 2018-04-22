@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        int N=0,Y=0,I=0;
+        for(int i=0,i<n,i++){
+            if(s[i]=='I'){
+                I=1;
+                break;
+            }
+            if(s[i]=='Y'){
+                Y=1;
+                break;
+            }
+        }
+        if(I==1)
+            cout<<"INDIAN\n";
+        else if (Y==1) {
+            cout<<"NOT INDIAN\n";
+        }
+        else{
+            cout<<"NOT SURE\n";
+        }
+    }
+    return 0;
+}

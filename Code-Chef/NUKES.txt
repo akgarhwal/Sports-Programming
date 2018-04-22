@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a,n,k;
+    cin>>a>>n>>k;
+    if(n==0){
+        for(int i=0;i<k;i++){
+            cout<<0<<" ";
+        }
+        return 0;
+    }
+    else{
+        int A[k]={0};
+        int max_num=pow(n+1,k);
+    	a=a%max_num;
+        n=n+1;
+        int i=0;
+        while(a!=0){
+            A[i++] = a%n;
+            a=a/n;
+        }
+        for(int i=0;i<k;i++){
+            cout<<A[i]<<" ";
+        }
+    }
+}

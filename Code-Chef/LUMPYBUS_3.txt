@@ -1,0 +1,124 @@
+/* akgarhwal */
+// When I wrote this, only God and I understood what I was doing
+// Now, God only knows
+#include<bits/stdc++.h>
+using namespace std;
+//input
+#define si(t) scanf("%d",&t)
+#define sl(t) scanf("%lld",&t)
+#define sf(t) scanf("%f",&t)
+#define sdb(t) scanf("%lf",&t)
+#define schar(c) scanf("%c",&c)
+#define sstring(s) scanf("%s",s)
+#define ssi(a,b) scanf("%d%d",&a,&b)
+#define ssl(a,b) scanf("%lld%lld",&a,&b)
+// typedef
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<string> vs;
+typedef pair<int,int> pii;
+typedef vector<pii> vpii;
+typedef set<int> si;
+typedef set<string> ss;
+typedef map<int,int> mii;
+typedef map<string,int> msi;
+//define
+#define sz(a) int((a).size())
+#define pb push_back
+#define all(c) (c).begin(),(c).end()
+#define tr(c,i) for(typeof((c).begin() i = (c).begin(); i != (c).end(); i++)
+#define present(c,x) ((c).find(x) != (c).end())
+#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define mod 1000000007
+
+//main
+int main(){
+    int tc;
+    si(tc);
+    while(tc--){
+        int n;
+        ll p,q;
+        cin>>n>>p>>q;
+        vi a(n,0);
+        ll sum=0;
+        int e=0,o=0;
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+            sum+=a[i];
+        }
+        if(sum<=(p+(2*q))){
+            cout<<n<<endl;
+            continue;
+        }
+        sort(all(a));
+        ll mon = p+(2*q);
+        int co=0;
+
+
+        if(p==0){
+            //cout<<"P==0\n";
+            for(int i=0;i<n;i++){
+                mon = p+(2*q);
+                if(mon>=a[i] and a[i]%2==0){
+                    q =q-(a[i]/2);
+                    co++;
+                }
+                else if(mon>=a[i] ){
+                    q = q - (a[i]/2) - 1;
+                    co++;
+                }
+            }
+            cout<<co<<endl;
+            continue;
+
+        }
+        for(int i=0;i<n;i++){
+            int x =a[i];
+            mon = p+(2*q);
+            if(mon>=a[i] and a[i]%2==0){
+                if(q>=(a[i]/2)){
+                    q = q-(a[i]/2);
+                    co++;
+                }
+                else{
+
+                    a[i] = a[i]-q*2;
+                    if(p>=a[i]){
+                        p = p-a[i];
+                        co++;
+                        q=0;
+                    }
+                    else{
+
+                    }
+                }
+
+            }
+            else if(mon>=a[i]){
+                if(q>=(a[i]/2) and p>0){
+                    q = q-(a[i]/2);
+                    p--;
+                    co++;
+                }
+                else{
+                    a[i] = a[i]-q*2;
+                    if(p>=a[i]){
+                    p = p-a[i];
+                    co++;
+                    q=0;
+                    }
+                    else{
+
+                    }
+                }
+            }
+            else{
+                break;
+            }
+        }
+        cout<<co<<endl;
+    }
+    return 0;
+}

@@ -1,0 +1,18 @@
+tc = int(input())
+while tc>0:
+    l = int(input())
+    s = input()
+    ans=0
+    j=0
+    while j<l:
+        i=j
+        while i<l:
+            s1 = s[j:i]
+            s2 = s[i:l]
+            if s1 in s2:
+                if len(s1)>ans:
+                    ans = len(s1)
+            i=i+1
+        j=j+1;
+    print(ans)
+    tc =tc-1

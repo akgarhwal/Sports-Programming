@@ -1,0 +1,100 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int llt;
+typedef pair<int, int> ii;
+typedef vector<ii> vii;
+typedef vector<int> vi;
+vi prime;
+//////////////////////////////for prime generating
+bool isp(int n){
+	if(n<=1)	return false;
+	if(n<=3)	return true;
+	if (!(n%2) || !(n%3)) return false;
+	int x = (int)(sqrt(n)+1e-7);
+	for(int i=5;i<=x;i+=6){
+		if(!(n%i) or !(n%(i+2)))	return false;
+	}
+	return true;
+}
+int nof(llt temp){
+		int k=0;
+        int ans=0,ch=0;
+		int total=1;
+		for(int j=prime[k];j*j<=temp;j=prime[++k]){
+            ch=0;
+			while(temp%j==0){
+                if(ch==0){
+                    ans++;
+                    ch=1;
+                }
+				temp/=j;
+			}
+		}
+		if(temp!=1){
+            ans++;
+        }
+		return ans;
+	}
+llt sumOfDivisors(int n)
+{   int b=n;
+    int prod=1;
+    for(int k=2;k*k<=n;k++){
+        int p=1;
+        while(n%k==0){
+            p=p*k+1;
+            n/=k;
+        }
+        prod*=p;
+    }
+    if(n>1)
+        prod*=1+n;
+    return prod;
+}
+bool isf(int n){
+    for(int i=2;i<=sqrt(n);i++){
+        if(n%(i*i)==0 ){
+            return false;
+        }
+    }
+    return true;
+}
+int main(){
+    prime.push_back(2);//first
+    prime.push_back(3);//second
+    for(int i=5;i<=100000;i+=6){
+        if(isp(i))
+            prime.push_back(i);
+            if(isp(i+2))
+                prime.push_back(i+2);
+    }
+    vi test;
+    vector<llt> res;
+    llt rec=0;
+    res.push_back(0);
+    for(int i=5;i<=100000;i++){
+        llt s = sumOfDivisors(i);
+        llt c = nof(s);
+        if(isp(c) and isf(i)){
+            rec+=s;
+            test.push_back(i);
+            res.push_back(rec);
+        }
+    }
+  int tc;
+  cin>>tc;
+    int x,y;
+  while(tc--){
+      int l,r;
+      cin>>l>>r;
+      x = lower_bound(test.begin(),test.end(),l)-test.begin();
+      
+      y = upper_bound(test.begin(),test.end(),r)-test.begin();
+      
+      llt result=0;
+            
+          result=res[y]-res[x];
+      
+      cout<<result<<endl;
+  }
+  return 0;
+}

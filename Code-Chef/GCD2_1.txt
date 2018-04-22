@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+#include<stdio.h>
+using namespace std;
+
+int main(){
+    int tc;
+    cin>>tc;
+    while(tc--){
+        int a;
+        char b[255];
+        scanf("%d",&a);
+        scanf("%s",b);
+        int len=0,i=0;
+        int bn=0;
+        if(a==0){
+            puts(b);
+            continue;
+        }
+        while(b[i]!='\0'){
+            bn = bn*10 + (b[i++]-'0');
+            bn = bn%a;
+            
+        }
+        
+        
+        cout<<__gcd(a,bn)<<endl;
+    }
+    return 0;
+}

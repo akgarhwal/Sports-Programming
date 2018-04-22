@@ -1,0 +1,56 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+	long long tc;
+	cin>>tc;
+	while(tc--){
+		long long n,k;
+		cin>>n>>k;
+		long long a[n];
+		long long b[n];
+		for(long long i=0;i<n;i++)
+			cin>>a[i];
+		for(long long i=0;i<n;i++)
+			cin>>b[i];
+		long long index=0;
+		long long maxp=a[0]*b[0];
+		for(long long i=0;i<n;i++){
+			if(maxp < a[i]*b[i]){
+				maxp = a[i]*b[i];
+				index = i;
+			}
+			else if(maxp == a[i]*b[i]){
+				if(abs(b[index]) < abs(b[i]) && b[i] != 0 && b[index] != 0){
+					maxp = a[i]*b[i];
+					index = i;
+				}
+				else if(abs(b[index]) < abs(b[i]) && b[i] != 0 && b[index] == 0){
+					maxp = a[i]*b[i];
+					index = i;
+				}
+			}
+			else{
+				
+			}
+		}
+		if(a[index] < 0)
+			a[index] = a[index] - k;
+		else if(a[index] == 0){
+			if(b[index] < 0){
+				a[index] -= k;
+			}
+			else{
+				a[index] += k;
+			}
+		}
+		else{
+			a[index] += k;
+		}
+		maxp=0;
+		for(long long i=0;i<n;i++){
+			maxp += a[i]*b[i];
+		}
+		cout<<maxp<<endl;
+	}
+}

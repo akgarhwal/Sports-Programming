@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int tc;
+	cin>>tc;
+	while(tc--){
+		int n;
+		cin>>n;
+		int l[n];
+		int r[n];
+		int rmax=r[0],index=0;
+		for(int i=0;i<n;i++){
+			cin>>l[i];
+		}
+		for(int i=0;i<n;i++){
+			cin>>r[i];
+			if(rmax<r[i]){
+				rmax=r[i];
+				index=i;
+			}
+		}
+		int x[n],m=0,rval=r[0],ind=0;
+		for(int i=0;i<n;i++){
+			x[i]=l[i]*r[i];
+			if(x[i]>=m){
+				m=x[i];
+				if(rval<r[i]){
+					rval=r[i];
+					ind=i;
+				}
+			}
+		}
+		cout<<ind+1<<endl;
+	}
+	return 0;
+}
