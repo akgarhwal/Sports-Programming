@@ -1,2 +1,3 @@
 https://community.topcoder.com/stat?c=problem_statement&pm=2986&rd=5862
 http://codeforces.com/problemset/problem/280/B
+http://codeforces.com/contest/967/problem/C
