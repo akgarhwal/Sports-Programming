@@ -1,1 +1,36 @@
--1 -1
+1
+Bus 10 P = 0 t = 0 U = 4
+Bus Stop point: 10
+ time to reach bs : 2.5
+ time for next bus : 3
+ nect bus time : 1
+Bus 0 P = 0 t = 0 U = 4
+Bus Stop point: 0
+ time to reach bs : 0
+ time for next bus : 0
+ nect bus time : 0
+10
+2
+Bus 40 P = 15 t = 10 U = 1
+Bus Stop point: 40
+ time to reach bs : 25
+ time for next bus : 35
+ nect bus time : 2
+Bus 10 P = 15 t = 10 U = 1
+Bus Stop point: 10
+ time to reach bs : 5
+ time for next bus : 15
+ nect bus time : 20
+30
+3
+Bus 100 P = 40 t = 2 U = 16
+Bus Stop point: 100
+ time to reach bs : 3.75
+ time for next bus : 6
+ nect bus time : 1
+Bus 40 P = 40 t = 2 U = 16
+Bus Stop point: 40
+ time to reach bs : 0
+ time for next bus : 2
+ nect bus time : 20
+5.75
