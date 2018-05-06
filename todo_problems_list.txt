@@ -2,4 +2,5 @@ https://community.topcoder.com/stat?c=problem_statement&pm=2986&rd=5862
 http://codeforces.com/problemset/problem/280/B
 http://codeforces.com/contest/967/problem/C
 https://www.hackerrank.com/contests/101hack54/challenges/bus-stops/copy-from/1307398879
-http://codeforces.com/contest/977/problem/F
+https://www.hackerrank.com/contests/101hack54/challenges/changing-numbers
+
