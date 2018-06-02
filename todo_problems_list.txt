@@ -5,3 +5,5 @@
 
 https://www.hackerrank.com/contests/101hack54/challenges/changing-numbers
 http://codeforces.com/contest/977/problem/F
+spoj.com - JNEXT
+spoj.com - HISTOGRA
