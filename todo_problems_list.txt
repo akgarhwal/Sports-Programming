@@ -7,3 +7,61 @@ https://www.hackerrank.com/contests/101hack54/challenges/changing-numbers
 http://codeforces.com/contest/977/problem/F
 spoj.com - JNEXT
 spoj.com - HISTOGRA
+
+// BS
+codechef.com - STRSUB, editorial
+codechef.com - ASHIGIFT, editorial
+codechef.com - STACKS, editorial
+codechef.com - DIVSET, editorial
+codechef.com - LOWSUM, editorial
+codechef.com - SNTEMPLE, editorial
+codechef.com - SNAKEEAT, editorial
+codechef.com - SCHEDULE, editorial
+codechef.com - RIGHTTRI, editorial
+codechef.com - FORESTGA, editorial
+codechef.com - CHEFHCK2,editorial
+spoj.com - ABCDEF
+spoj.com - NOTATRI
+spoj.com - SCALE
+spoj.com - SUMFOUR
+spoj.com - SUBSUMS
+spoj.com - ANARC05B
+spoj.com - RENT
+spoj.com - PIE
+spoj.com - MKUHAR
+spoj.com - SVADA
+spoj.com - SUBS
+=======================
+// DP
+codechef.com - ALTARAY, editorial
+codechef.com - DELISH, editorial
+codechef.com - DBOY, editorial
+codechef.com - XORSUB, editorial
+codechef.com - GRID, editorial
+codechef.com - TADELIVE, editorial
+codechef.com - FROGV, editorial
+codechef.com - MATRIX2, editorial
+codechef.com - AMSGAME2, editorial
+spoj.com - MDOLLS
+spoj.com - MSTICK
+spoj.com - MCARDS
+spoj.com - MIXTURES
+spoj.com - SAMER08D
+spoj.com - AIBOHP
+==========================
+// Greedy
+codechef.com - MMPROD, editorial
+codechef.com - CHEFTMA, editorial
+codechef.com - STICKS, editorial
+spoj.com - BAISED
+spoj.com - BALIFE
+spoj.com - GCJ101BB
+codechef.com - FGFS
+codechef.com - KNPSK
+spoj.com - ARRANGE
+================================
+
+spoj.com - JNEXT
+spoj.com - HISTOGRA
+
+
