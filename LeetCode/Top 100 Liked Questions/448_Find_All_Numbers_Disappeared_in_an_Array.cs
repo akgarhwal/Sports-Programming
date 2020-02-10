@@ -23,10 +23,6 @@ public class Solution {
         int[] nums2 = new int[nums.Length];
         
         for(int index = 0; index < nums.Length; index++){
-            Console.Write(nums2[index] + " ");
-        }
-        
-        for(int index = 0; index < nums.Length; index++){
             nums2[nums[index]-1] = 1;
         }
         for(int index = 0; index < nums.Length; index++){
