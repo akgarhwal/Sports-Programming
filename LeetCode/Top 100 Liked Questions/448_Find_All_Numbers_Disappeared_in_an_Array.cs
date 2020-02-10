@@ -43,8 +43,10 @@ public class Solution {
         
         // First make elements negative if associated index is an element in the array
         for(int index = 0; index < length; index++){
-            indexToUpdate = nums[index] < 0 ? -(nums[index]) - 1 : nums[index] - 1;
-            nums[indexToUpdate] = nums[indexToUpdate] > 0 ? -nums[indexToUpdate] : nums[indexToUpdate];
+            indexToUpdate = Math.Abs(nums[index]) - 1;
+            if (nums[indexToUpdate] > 0) {
+                nums[indexToUpdate] = -nums[indexToUpdate];
+            }
         }
         for(int index = 0; index < length; index++){
             if(nums[index] > 0) {
