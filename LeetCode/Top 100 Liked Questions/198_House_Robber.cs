@@ -13,6 +13,8 @@ Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
 
 */
 
+
+// Solution 1
 public class Solution {
     public int Rob(int[] nums) {
         int length = nums.Length;
@@ -31,5 +33,27 @@ public class Solution {
             }
         }
         return length == 0 ? 0 : Math.Max(res[0, length-1], res[1, length-1]);
+    }
+}
+
+
+// Solution 2
+public class Solution {
+    public int Rob(int[] nums) {
+        int length = nums.Length;
+        int[] res = new int[length];
+        
+        for(int index = 0; index < length; index++){
+            if(index == 0){
+                res[index] = nums[index];
+            }
+            else if (index == 1){
+                res[index] = Math.Max(nums[index-1], nums[index]);
+            }
+            else{
+                res[index] = Math.Max(res[index-1], res[index-2] + nums[index]);
+            }
+        }
+        return length == 0 ? 0 : res[length-1];
     }
 }
